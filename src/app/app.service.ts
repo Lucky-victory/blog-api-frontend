@@ -1,5 +1,5 @@
 import { API_BASE_URL } from './constants/utils';
-import { IPosts } from './app.type';
+import { IArticlesResponse } from './app.type';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -8,7 +8,7 @@ import { Injectable } from '@angular/core';
 export class AppService {
   private allPostUrl = API_BASE_URL + '/articles';
   constructor(private http: HttpClient) {}
-  getAllPosts(): Observable<IPosts[]> {
-    return this.http.get<IPosts[]>(this.allPostUrl);
+  getAllPosts(): Observable<IArticlesResponse> {
+    return this.http.get<IArticlesResponse>(this.allPostUrl);
   }
 }

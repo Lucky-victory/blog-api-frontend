@@ -1,4 +1,4 @@
-import { IPosts } from './app.type';
+import { IArticles, IArticlesResponse } from './app.type';
 
 import { Component } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
@@ -11,7 +11,7 @@ import { AppService } from './app.service';
 })
 export class AppComponent {
   title = 'blog-api-frontend';
-  post: IPosts[] = [];
+  post: IArticles[] = [];
   constructor(
     private service: AppService,
     private meta: Meta,
@@ -19,7 +19,7 @@ export class AppComponent {
   ) {
     this.pageTitle.setTitle('new title');
     this.service.getAllPosts().subscribe((res) => {
-      this.post = res;
+      this.post = res.articles;
     });
   }
 }

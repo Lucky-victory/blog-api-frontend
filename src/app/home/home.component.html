@@ -1,2 +1,54 @@
-<p>home works!</p>
-<router-outlet></router-outlet>
+<style>
+  @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+</style>
+
+<div class="container">
+  <div class="cards-container">
+    <div class="card" *ngFor="let article of allPosts">
+      <div class="card-image-wrapper">
+        <img src="{{ article.heroImage }}" alt="" class="card-image" />
+      </div>
+      <div class="card-info">
+        <div class="card-info-inner">
+          <span class="card-category">{{
+            article.category ? article.category : ""
+          }}</span>
+          <div class="flex">
+            <span class="card-comment"
+              ><i class="material-icons">comment</i
+              >{{ article.comments ? article.comments.length : 0 }}</span
+            >
+            <span class="card-views"
+              ><i class="material-icons">visibility</i>
+              {{ article.views }}</span
+            >
+          </div>
+        </div>
+        <h2 class="card-title">
+          <a [routerLink]="['post', 'post.slug']">{{ article.title }}</a>
+        </h2>
+
+        <div class="card-desc">
+          <p>{{ article.body }}</p>
+        </div>
+      </div>
+      <div class="card-details">
+        <div class="card-author-image-wrapper">
+          <img
+            class="card-author-image"
+            src="{{ article.author.profileImage }}"
+          />
+        </div>
+        <span class="card-author">
+          <span class="card-author-title">By</span>
+          <a class="card-author-name" href="">{{
+            article.author.fullname
+          }}</a></span
+        >
+        <span class="divider"></span>
+        <span class="card-pubdate">{{ formatDate(article.publishedAt) }}</span>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <router-outlet></router-outlet> -->

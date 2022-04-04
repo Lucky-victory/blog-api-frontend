@@ -1,17 +1,25 @@
-export interface IPosts {
+export interface IArticles {
   title: string;
   body: string;
   tags: string[] | null;
   authorId: string;
   views: number;
-  comment: object[] | null;
-  author: IPostAuthor;
+  comments: object[] | null;
+  author: IArticleAuthor;
+  heroImage: string;
+  category: string | null;
+  publishedAt: Date;
 }
-export interface IPostAuthor {
+export interface IArticleAuthor {
   fullname: string;
   bio: StringOrNull;
   id: string;
   twitter: StringOrNull;
+  profileImage: string;
 }
-
+export interface IArticlesResponse {
+  message: string;
+  status: number;
+  articles: IArticles[];
+}
 export type StringOrNull = string | null;

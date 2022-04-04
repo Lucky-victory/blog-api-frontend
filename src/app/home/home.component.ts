@@ -1,4 +1,4 @@
-import { IPosts } from './../app.type';
+import { IArticles } from './../app.type';
 import { AppService } from './../app.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-  allPosts: IPosts[] = [];
+  allPosts: IArticles[] = [];
   constructor(private service: AppService) {
     this.service.getAllPosts().subscribe((response) => {
-      this.allPosts = response;
+      this.allPosts = response.articles;
+    });
+  }
+  formatDate(date:Date) {
+    return new Date(date).toLocaleString('en-US', {
+      dateStyle:'medium'
     });
   }
 }
