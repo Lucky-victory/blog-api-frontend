@@ -4,3 +4,39 @@
   padding: 0;
   box-sizing: border-box;
 }
+.material-icons-outlined,.material-icons{
+  overflow: hidden;
+  line-height: 1;
+}
+.flex{
+  display: flex;
+}
+.jc-sb{
+  justify-content: space-between;
+}
+.ai-c{
+  align-items: center;
+}
+img{
+  max-width: 100%;
+}
+a,
+button {
+  cursor: pointer;
+background: none;
+outline: none;
+border: none;
+}
+h1,h2,h3,h4,h5,h6,p{
+  margin: 1rem 0 ;
+}
+blockquote{
+  margin: 1rem 0;
+  margin-left: 1.3rem;
+  padding-left: 1rem;
+  border-left: 4px solid #510328;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}

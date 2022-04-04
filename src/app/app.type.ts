@@ -9,6 +9,7 @@ export interface IArticles {
   heroImage: string;
   category: string | null;
   publishedAt: Date;
+  slug:string;
 }
 export interface IArticleAuthor {
   fullname: string;
