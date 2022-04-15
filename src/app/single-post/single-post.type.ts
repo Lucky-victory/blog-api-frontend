@@ -4,4 +4,9 @@ export interface ISinglePost{
     views:number;
     title:string;
     slug:string;
+    body:string;
+    tags:string[];
+    id:string;
+    readTime:number;
+    publishedAt:Date
 }

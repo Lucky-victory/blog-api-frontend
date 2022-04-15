@@ -3,7 +3,7 @@
 </style>
 
 
-   <div class="post-container">
+   <div class="post-container" attr.data-post-id="{{singlePost.id}}">
       <!--   <div class="breadcrumb-wrapper">
        <a href="">home</a> > <a href="">category</a> > <span>article title</span>
     </div> -->
@@ -27,8 +27,8 @@
       <div class="post-pub-info">
          <div class="flex ai-c">
 
-            <div class="post-pub-date">mar 10 2022</div>
-            <div class="post-pub-read-time">2 min read</div>
+            <div class="post-pub-date">{{formatDate(singlePost.publishedAt)}}</div>
+            <div class="post-pub-read-time">{{singlePost.readTime}} min read</div>
          </div>
          <div class="post-pub-views ">
             <i class="material-icons-outlined">visibility</i>
@@ -36,10 +36,9 @@
          </div>
       </div>
       <div class="flex jc-sb ai-c">
-         <div class="post-tags-wrapper">
-            <a href="" class="post-tag">nodejs</a>
-            <a href="" class="post-tag">javascript</a>
-            <a href="" class="post-tag">api</a>
+         <div class="post-tags-wrapper" >
+            <a href="" *ngFor="let tag of singlePost.tags" class="post-tag">{{tag}}</a>
+         
          </div>
          <div class="post-share-btns-wrapper">
             <button class="post-share-btn material-icons-outlined share-icon">share</button>
@@ -54,13 +53,8 @@
       <div class="post-hero-image-wrapper">
       <img src="{{singlePost.heroImage}}" alt="" class="post-hero-image" />
       </div>
-      <div class="post-content">
-
-         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio eveniet non modi consequatur repudiandae consequuntur culpa veritatis dolore voluptatum, ullam tenetur architecto esse nulla dolores impedit, quisquam, error omnis officiis accusamus quia vero facilis ducimus hic perferendis. Ipsum, totam doloribus.</p>
-
-         <blockquote>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti sed nemo impedit unde beatae earum tenetur doloremque officiis harum quod!
-         </blockquote>
+      <div class="post-content" [innerHtml]="singlePost.body | safeHtml">
+   
       </div>
    </div>
 <router-outlet></router-outlet>

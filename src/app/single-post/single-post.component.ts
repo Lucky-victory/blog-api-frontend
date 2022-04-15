@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { AppService } from '../app.service';
@@ -13,7 +14,12 @@ singlePost:ISinglePost={
   heroImage:'',
   views:0,
   slug:'',
-  title:''
+  title:'',
+  body:'',
+  tags:[],
+  readTime:0
+  ,id:'',
+  publishedAt:new Date(),
 }
 
   constructor(private route:ActivatedRoute,private service:AppService) { 
@@ -29,5 +35,9 @@ this.route.paramMap.subscribe(params=>{
 this.singlePost=onePost;
 })
   }
-
+  formatDate(date:Date) {
+    return new Date(date).toLocaleString('en-US', {
+      dateStyle:'medium'
+    });
+  }
 }
