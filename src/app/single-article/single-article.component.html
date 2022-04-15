@@ -1,0 +1,113 @@
+<style>
+   @import url('https://fonts.googleapis.com/icon?family=Material+Icons+Outlined');
+</style>
+
+
+   <div class="post-container" attr.data-post-id="{{singleArticle.id}}">
+      <!--   <div class="breadcrumb-wrapper">
+       <a href="">home</a> > <a href="">category</a> > <span>article title</span>
+    </div> -->
+      <div class="post-title">
+         <h1>{{singleArticle.title}}</h1>
+      </div>
+
+      <div class="post-author ">
+         <div class="author-image-wrapper">
+            <a routerLink="{{'author/'+singleArticle.author.username}}" class="author-link"></a>
+            <img src="{{singleArticle.author.profileImage}}" alt="" class="author-image">
+         </div>
+         <div class="flex flex-d-col">
+            
+         <div class="author-name"><a routerLink="{{'author/'+singleArticle.author.username}}">{{singleArticle.author.fullname}} </a>
+         <div class="author-socials flex ai-c gap-05r">
+             <a href="" class="post-share-btn"><i class="devicon-github-plain colored"></i></a>
+             <a href="" class="post-share-btn"><i class="devicon-twitter-plain colored"></i></a>
+             <a href="" class="post-share-btn"><i class="devicon-linkedin-plain colored"></i></a>
+             
+         </div>
+         </div>
+
+      <div class="post-pub-info">
+   
+            <time class="post-pub-date">{{formatDate(singleArticle.publishedAt)}}</time>
+            <div class="post-pub-read-time">{{singleArticle.readTime}} min read</div>
+         
+      </div>
+         </div>
+         </div>
+         <div class="grey-bg rad-5 pad-y-10 pad-x-5">
+
+            <div class="flex ai-c jc-sb mb-1r">
+               <div class="post-category">
+               <i class="material-icons-outlined">sell</i>
+               <a [routerLink]="['category/',singleArticle.category]">
+                  
+                  {{singleArticle.category}}
+               </a>
+               
+            </div>
+            <div class="flex ai-c gap-1r">
+               
+               <div class="post-pub-views ">
+                  <i class="material-icons-outlined">comment</i>
+                  <span>{{singleArticle.comments.length}}</span>
+               </div>
+               <div class="post-pub-views ">
+                  <i class="material-icons-outlined">visibility</i>
+                  <span>{{singleArticle.views}}</span>
+               </div>
+            </div>
+         </div>
+         <div class="flex jc-sb ai-c flexw-w">
+            <div class="post-tags-wrapper" >
+               <a href="" *ngFor="let tag of singleArticle.tags" class="post-tag">#{{tag}}</a>
+               
+            </div>
+            <div class="post-share-btns-wrapper">
+               <button class="post-share-btn material-icons-outlined share-icon">share</button>
+               <div class="post-share-btns-inner">
+                  <a href="" class="post-share-btn"><i class="devicon-facebook-plain colored"></i></a>
+                  <a href="https://twitter.com/share?url=/post/{{singleArticle.slug}} " target="_blank" class="post-share-btn"><i class="devicon-twitter-plain colored"></i></a>
+                  <a [routerLink]="['/article',singleArticle.slug]" class="post-share-btn material-icons-outlined">link</a>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="post-hero-image-wrapper">
+         <img src="{{singleArticle.heroImage}}" alt="" class="post-hero-image" />
+      </div>
+      <div class="post-content">
+         
+         
+         <blockquote>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti sed nemo impedit unde beatae earum tenetur doloremque officiis harum quod!
+         </blockquote>
+
+       
+      </div>
+      
+      <div class="author-card">
+         <div class="author-card-title">written by</div>
+         <div class="flex ai-c gap-1r">
+            
+            <div class="author-image-wrapper">
+               <a routerLink="{{'author/'+singleArticle.author.username}}" class="author-link"></a>
+               <img src="https://images.pexels.com/photos/769772/pexels-photo-769772.jpeg?cs=srgb&dl=pexels-jeffrey-reed-769772.jpg&fm=jpg" alt="" class="author-image"></div>
+            <div class="flex flex-d-col  ">
+               <div class="author-name flex aic-c">
+                  <a [routerLink]="['author/',singleArticle.author.username]" class="">lucky victory</a>
+               </div>
+               
+               <div class="author-socials">
+                  <a href="" class="post-share-btn"><i class="devicon-github-plain colored"></i></a>
+             <a href="" class="post-share-btn"><i class="devicon-twitter-plain colored"></i></a>
+             <a href="" class="post-share-btn"><i class="devicon-linkedin-plain colored"></i></a>
+             
+            </div>
+         </div>
+      </div>
+      
+      <div class="author-card-bio">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim officiis, ullam dolorum beatae consequatur eveniet, voluptas in, incidunt ipsam quibusdam distinctio autem sequi consequuntur. Nemo quis quasi illum magni, unde.</div>
+   </div>
+</div>
+   <router-outlet></router-outlet>

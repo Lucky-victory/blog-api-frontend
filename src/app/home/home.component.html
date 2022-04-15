@@ -3,12 +3,21 @@
 </style>
 
 <div class="container">
+   <div class="categories-container">
+      <ul class="category-list">
+<li class="category-item">
+   <a href="" class="category-item-link">Business</a>
+</li>
+<li class="category-item">
+   <a href="" class="category-item-link">coding</a>
+</li>
+<li class="category-item">
+   <a href="" class="category-item-link">Recipes </a>
+</li>
+      </ul>
+   </div>
   <div class="cards-container">
     <div class="card" *ngFor="let article of allArticles">
-      <div class="card-image-wrapper">
-        <img src="{{ article.heroImage }}" alt="" class="card-image" />
-      </div>
-           <div class="card">
             <div class="card-image-wrapper">
                <img src="{{article.heroImage}}" alt="" class="card-image">
             </div>
@@ -21,10 +30,13 @@
                      <span class='icon-wrapper card-views'><i class='material-icons-outlined icon'>visibility</i> {{article.views}}</span>
                   </div>
                </div>
-               <h2 class='card-title'><a href="/article/{{article.slug}}">{{article.title}}</a></h2>
+               <h2 class='card-title'><a [routerLink]="['article/',article.slug]" class="primary">
+                  {{article.title}}
+               </a>
+               </h2>
     
-               <div class="card-desc">
-                  <p>{{article.intro ? shortenText(article.intro) : shortenText(article.content)}}</p>
+               <div class="card-desc" [innerHtml]="article.intro ? shortenText(article.intro) : shortenText(article.content)">
+                 
                </div>
             </div>
             <div class="card-details">
@@ -33,7 +45,7 @@
                </div>
                <span class='card-author'>
                   By
-                  <a class='card-author-name' href='/author/{{article.author.username}}'>{{article.author.fullname}}</a></span>
+                  <a class='card-author-name' [routerLink]='["author/",article.author.username]'>{{article.author.fullname}}</a></span>
                <span class='divider'></span>
                <time class='card-pubdate'>{{formatDate(article.publishedAt)}}</time>
     
@@ -41,5 +53,4 @@
          </div>
   </div>
   </div>
-</div>
 <!-- <router-outlet></router-outlet> -->

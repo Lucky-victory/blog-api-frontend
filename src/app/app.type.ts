@@ -10,9 +10,9 @@ export interface IArticles {
   category: string | null;
   publishedAt: Date;
   slug:string;
+  readTime:number
 }
 export interface IArticleAuthor {
-  fullname: string;
   bio: StringOrNull;
   id: string;
   twitter: StringOrNull;
