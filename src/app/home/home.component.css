@@ -1,154 +1,102 @@
-* {
-  padding: 0;
-  margin: 0;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  font-family: inherit;
-}
-button,
-a {
-  cursor: pointer;
-}
-.flex {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-a {
-  color: #0ca770;
-  text-decoration: none;
-}
-.divider {
-  display: inline-block;
-  /* margin: 0 0.15rem; */
-  width: 2px;
-  height: 1.5rem;
-  background: #ccc;
-  border-radius: 1rem;
-}
-.cards-container {
-  padding: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 2rem;
-  width: 100vw;
+@import url('global.css');
+
+.cards-container{
+   padding: 1rem;
+   display: flex;
+   /* align-items: center; */
+   justify-content: center;
+   flex-wrap: wrap;
+   gap: 2rem;
 }
 
-.card {
-  border-radius: 1rem;
-  background: #f2f3f2;
-  flex-shrink: 0;
-  width: 100%;
-  max-width: 370px;
-  box-shadow: 5px 8px 12px #0002, -8px 5px 12px #0002;
-  font-family: "Nunito", sans-serif;
+.card{
+   border-radius: 0.75rem;
+   background: #fff;
+   flex-shrink: 0;
+   width: 100%;
+   max-width: 450px;
+   /* box-shadow: 5px 6px 10px #0002,-6px 5px 19px #0002; */
+      box-shadow: 3px 6px 10px #0003;
+
+   font-family: 'Nunito',sans-serif;
+   padding: 1rem;
+   display: flex;
+   flex-direction: column;
 }
-.card-image-wrapper {
-  height: 200px;
-  width: 100%;
-  background: #000;
-  border-radius: 1rem 1rem;
-  position: relative;
+.card-image-wrapper{
+   height: 250px;
+   width: 100%;
+   background: #000;
+   border-radius: 0.75rem ;
+   position: relative;
 }
-.card-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: inherit;
-  position: absolute;
+.card-image{
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+      border-radius: inherit;
+      position: absolute;
 }
-.card-details {
-  padding: 1rem 0.5rem;
-  display: flex;
-  align-items: center;
-  width: 100%;
-  gap: 0.5rem;
-  font-size: 14px;
-  font-family: "Poppins", sans-serif;
+.card-details{
+   /* padding:1rem 0.75rem; */
+   display: flex;
+   align-items: center;
+   width: 100%;
+   gap:0.5rem;
+   font-size: 14px;
+   font-family: 'Poppins',sans-serif;
 }
-.card-category {
-  text-transform: uppercase;
-  font-weight: 500;
-  color: #8d8683;
-  font-size: 14px;
+.card-category{
+   text-transform: uppercase;
+   font-weight: 500;
+   color: var(--alternative-color);
+   font-size: 14px;
 }
-.card-info {
-  padding: 1rem;
-  padding-bottom: 0;
+.card-info{
+   padding-top: 1rem;
+   padding-bottom: 0;
+   flex: 1
 }
-.card-info-inner {
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-family: "Poppins", sans-serif;
+.card-info-inner{
+   margin-bottom: 1rem;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   font-family: 'Poppins',sans-serif;
+   
+   
 }
-.card-title {
-  text-transform: capitalize;
+.card-title{
+   text-transform: capitalize;
+   margin: 1rem 0;
 }
-.card-desc {
-  margin: 0.5rem 0;
+.card-desc{
+   margin:0.5rem 0 ;
 }
-.card-views,
-.card-comment {
-  color: #8d8683;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  gap: 0.375rem;
-  font-size: 14px;
+.card-views,.card-comment{
+   color: var(--alternative-color);
+   font-weight: 500;
+   display: flex;
+   align-items: center;
+   gap:0.25rem;
+   font-size: 14px;
 }
-.card-views .material-icons,
-.card-comment .material-icons {
-  font-size: inherit;
+
+.card-author{
+   display: flex;
+   align-items: center;
+   text-transform: uppercase;
+   gap:0.5rem;
+   color: var(--alternative-color);
 }
-.card-author {
-  display: flex;
-  align-items: center;
-  text-transform: uppercase;
+.card-author-name{
+   text-decoration: none;
+   color: var(--link-color);
 }
-.card-author-title {
-  color: #8d8683;
-  margin-right: 0.25rem;
-  font-weight: 500;
-}
-.card-author-name {
-  text-decoration: none;
-  color: #0ca770;
-}
-.card-author-image-wrapper {
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 50%;
-  position: relative;
-  margin: 0 0.5rem;
-}
-.card-author-image-wrapper::before {
-  content: "";
-  position: absolute;
-  width: calc(100% + 10px);
-  height: calc(100% + 10px);
-  background: #0ca770;
-  bottom: -5px;
-  left: -5px;
-  border-radius: 50%;
-  clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
-}
-.card-author-image {
-  border-radius: inherit;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: absolute;
-  z-index: 2;
-  border: 2px solid #fff;
-  background: #000;
-}
-.card-pubdate {
-  color: #8d8683;
-  text-transform: uppercase;
-  font-weight: 500;
+.card-pubdate{
+   text-transform: uppercase;
+   font-weight: 500;
+      color: var(--alternative-color);
+font-size: 13px;
+
 }

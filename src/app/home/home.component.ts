@@ -19,4 +19,16 @@ export class HomeComponent {
       dateStyle:'medium'
     });
   }
+  shortenText(text:string, maxLength:number = 140) {
+     const maxTextLength = maxLength;
+     const textToShorten = String(text);
+     let shortenedText = textToShorten.substring(0, maxTextLength);
+     if (textToShorten.length > maxTextLength) {
+        return `${shortenedText}...`;
+     }
+     else {
+        return shortenedText;
+     }
+  
+  }
 }
