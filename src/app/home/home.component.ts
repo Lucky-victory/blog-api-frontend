@@ -8,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-  allPosts: IArticles[] = [];
+  allArticles: IArticles[] = [];
   constructor(private service: AppService) {
-    this.service.getAllPosts().subscribe((response) => {
-      this.allPosts = response.articles;
+    this.service.getArticles().subscribe((response) => {
+      this.allArticles = response.articles;
     });
   }
   formatDate(date:Date) {

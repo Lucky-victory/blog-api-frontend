@@ -1,7 +1,7 @@
 export interface IArticles {
   title: string;
-  body: string;
-  tags: string[] | null;
+  content: string;
+  intro: string;
   authorId: string;
   views: number;
   comments: object[] | null;
@@ -17,6 +17,8 @@ export interface IArticleAuthor {
   id: string;
   twitter: StringOrNull;
   profileImage: string;
+  username:string;
+  fullname:string;
 }
 export interface IArticlesResponse {
   message: string;

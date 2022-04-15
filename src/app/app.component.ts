@@ -18,7 +18,7 @@ export class AppComponent {
     private pageTitle: Title
   ) {
     this.pageTitle.setTitle('new title');
-    this.service.getAllPosts().subscribe((res) => {
+    this.service.getArticles().subscribe((res) => {
       this.post = res.articles;
     });
   }
