@@ -8,15 +8,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-  allPosts: IArticles[] = [];
+  allArticles: IArticles[] = [];
   constructor(private service: AppService) {
-    this.service.getAllPosts().subscribe((response) => {
-      this.allPosts = response.articles;
+    this.service.getArticles().subscribe((response) => {
+      this.allArticles = response.articles;
     });
   }
   formatDate(date:Date) {
     return new Date(date).toLocaleString('en-US', {
       dateStyle:'medium'
     });
+  }
+  shortenText(text:string, maxLength:number = 140) {
+     const maxTextLength = maxLength;
+     const textToShorten = String(text);
+     let shortenedText = textToShorten.substring(0, maxTextLength);
+     if (textToShorten.length > maxTextLength) {
+        return `${shortenedText}...`;
+     }
+     else {
+        return shortenedText;
+     }
+  
   }
 }

@@ -1,42 +1,173 @@
-/* You can add global styles to this file, and also import other style files */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+   -webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   box-sizing: border-box;
+   font-family: inherit;
+}
+html{
+   --secondary-color:#022408;
+   --link-color:#047F63;
+   --link-color-light:#047F6311;
+   --primary-color:#b8293d;
+   --primary-color-light:#b8293d11;
+   --alternative-color:#596e5c;
+}
+body{
+   background: #e1e1e1;
 }
 .material-icons-outlined,.material-icons{
-  overflow: hidden;
-  line-height: 1;
+   overflow: hidden;
+   line-height: 1;
 }
 .flex{
-  display: flex;
+   display: flex;
+}
+.flex-d-col{
+   flex-direction: column;
 }
 .jc-sb{
-  justify-content: space-between;
+   justify-content: space-between;
+}
+.jc-c{
+   justify-content: center;
 }
 .ai-c{
-  align-items: center;
+   align-items: center;
+}
+.gap-1r{
+   gap:1rem;
+}
+.mb-10{
+   margin-bottom: 10px;
 }
 img{
-  max-width: 100%;
+   max-width: 100%;
+   max-height: 100%;
+}
+
+a {
+color: var(--link-color);
+text-decoration: none;
 }
 a,
 button {
-  cursor: pointer;
+   cursor: pointer;
 background: none;
 outline: none;
 border: none;
 }
-h1,h2,h3,h4,h5,h6,p{
-  margin: 1rem 0 ;
+h1,h2,h3,h4,h5,h6{
+   margin: 2rem 0 ;
+}
+p{
+   margin: 1rem 0;
+   line-height: 1.4;
 }
 blockquote{
-  margin: 1rem 0;
-  margin-left: 1.3rem;
-  padding-left: 1rem;
-  border-left: 4px solid #510328;
+   margin: 2rem 0;
+   margin-left: 1.5rem;
+   padding: 0.75rem;
+   border-radius: 0.5rem;
+   padding-left: 1.5rem;
+   border-left: 4px solid var(--primary-color);
+   background: var(--primary-color-light);
+   color: var(--secondary-color);
+   line-height: 1.4;
 }
-a {
-  text-decoration: none;
-  color: inherit;
+ul,ol{
+   margin: 1rem 0;
+   padding-left: 30px;
+}
+ol{
+   counter-reset: list-number
+}
+ul li,ol li{
+   list-style: none;
+   margin: 0.625rem 0;
+   
+}
+ol li::before{
+   counter-increment: list-number;
+  content:counter(list-number) ".";
+  color:var(--primary-color);
+  font-weight: 500;
+  margin-right: 0.5rem;
+  
+}
+ul li{
+   position: relative;
+}
+ul li::before{
+   content: "";
+   width: 5px;
+   height: 5px;
+   border-radius: 50%;
+   background:var(--primary-color);
+      border: 0.5px solid var(--primary-color);
+position: relative;
+top: 45%;
+transform: translateY(-40%);
+   display: inline-block;
+   margin-right: 8px;
+}
+ul ul{
+   /* padding-left: 2rem; */
+}
+ul ul li::before{
+   background: transparent;
+   border: 1px solid var(--primary-color);
+}
+ul ul ul li::before{
+   background: var(--primary-color);
+   border-radius: 0!important;
+       border: 0.5px solid var(--primary-color);
+  
+}
+.icon{
+   font-size: 18px;
+}
+.icon-wrapper{
+   display: flex;
+   align-items: center;
+}
+/* global class for author image */
+.author-image-wrapper {
+   width: 2.75rem;
+   height: 2.75rem;
+   border-radius: 50%;
+   position: relative;
+
+}
+
+.author-image {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   border-radius: inherit;
+   object-fit: cover;
+   border: 2px solid #fff;
+   margin: 0;
+}
+
+.author-image-wrapper::before {
+   content: "";
+   position: absolute;
+   --over:8px;
+   width: calc(100% + var(--over));
+   height: calc(100% + var(--over));
+   background: var(--secondary-color);
+   bottom: -4px;
+   left: -4px;
+   border-radius: 50%;
+   clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+}
+.divider {
+   display: inline-block;
+   /* margin: 0 0.15rem; */
+   width: 2px;
+   height: 1.5rem;
+   background: #ccc;
+   border-radius: 1rem;
 }

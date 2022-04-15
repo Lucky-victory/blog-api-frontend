@@ -11,7 +11,7 @@ export class AppService {
   private singlePostUrl= API_BASE_URL+'/article'
   private allPostUrl = API_BASE_URL + '/articles';
   constructor(private http: HttpClient) {}
-  getAllPosts(): Observable<IArticlesResponse> {
+  getArticles(): Observable<IArticlesResponse> {
     return this.http.get<IArticlesResponse>(this.allPostUrl);
   }
   getSinglePost(slug: string | null):Observable<ISinglePost>{
