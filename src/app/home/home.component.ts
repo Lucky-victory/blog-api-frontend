@@ -2,6 +2,7 @@ import { IArticles } from './../app.type';
 import { AppService } from './../app.service';
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -13,6 +14,13 @@ export class HomeComponent {
     this.service.getArticles().subscribe((response) => {
       this.allArticles = response.articles;
     });
+  }
+  getArticleByCategory(category:string){
+    const cat=category ? 'category='+category:'';
+    this.service.getArticles(cat).subscribe(res=>{
+      this.allArticles=res.articles
+    })
+  
   }
   formatDate(date:Date) {
     return new Date(date).toLocaleString('en-US', {

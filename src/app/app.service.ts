@@ -12,7 +12,7 @@ export class AppService {
   private allPostUrl = API_BASE_URL + '/articles';
   constructor(private http: HttpClient) {}
   getArticles(path?:string): Observable<IArticlesResponse> {
-    return this.http.get<IArticlesResponse>(this.allPostUrl);
+    return this.http.get<IArticlesResponse>(`${this.allPostUrl}${path ? '?'+path:''}`);
   }
   getSingleArticle(slug: string | null):Observable<ISingleArticle>{
     

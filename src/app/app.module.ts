@@ -10,10 +10,11 @@ import { Safe } from './pipes/pipe';
 import { SingleArticleComponent } from './single-article/single-article.component';
 import { CategoryPageComponent } from './category-page/category-page.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { NgHttpLoaderModule } from 'ng-http-loader';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, SingleArticleComponent,Safe, CategoryPageComponent, NotFoundComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule,NgHttpLoaderModule.forRoot()],
   providers: [AppService],
   bootstrap: [AppComponent],
   exports:[Safe]

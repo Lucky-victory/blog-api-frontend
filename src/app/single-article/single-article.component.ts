@@ -1,7 +1,8 @@
 
 import { Component, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { Spinkit } from 'ng-http-loader';
 import { AppService } from '../app.service';
 import { ISingleArticle } from './single-article.type';
 
@@ -10,6 +11,7 @@ import { ISingleArticle } from './single-article.type';
   templateUrl: './single-article.component.html',
   styleUrls: ['./single-article.component.css']
 })
+
 export class SingleArticleComponent implements OnInit {
 singleArticle:ISingleArticle={
   heroImage:'',
@@ -28,12 +30,12 @@ singleArticle:ISingleArticle={
     username:'',
     fullname:'',
     twitter:'',
-    profileImage:'',
+    profileImage:'https://images.pexels.com/photos/1615776/pexels-photo-1615776.jpeg?cs=srgb&dl=pexels-rodolfo-clix-1615776.jpg&fm=jpg&w=640&h=960',
     id:''
   }
-}
-
-  constructor(private route:ActivatedRoute,private service:AppService,private pageTitle:Title, private pageMeta:Meta) { 
+};
+spinnerStyle=Spinkit;
+  constructor(private route:ActivatedRoute,private router:Router, private service:AppService,private pageTitle:Title, private pageMeta:Meta) { 
 
   }
 
@@ -41,11 +43,11 @@ singleArticle:ISingleArticle={
     let slug:string | null='';
 this.route.paramMap.subscribe(params=>{
    slug=params.get('slug');
-});
-  this.service.getSingleArticle(slug).subscribe(onePost=>{
-this.singleArticle=onePost;
-this.setTitle(this.singleArticle.title);
-})
+   this.service.getSingleArticle(slug).subscribe(onePost=>{
+     this.singleArticle=onePost;
+     this.setTitle(this.singleArticle.title);
+    })
+  });
   }
   formatDate(date:Date) {
     return new Date(date).toLocaleString('en-US', {
@@ -54,5 +56,8 @@ this.setTitle(this.singleArticle.title);
   }
   setTitle(newTitle:string){
     this.pageTitle.setTitle(newTitle);
+  }
+  goToPage(path:any[]){
+    this.router.navigate(path);
   }
 }

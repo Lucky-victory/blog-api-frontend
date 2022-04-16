@@ -1,45 +1,32 @@
 
    <div class="container">
       <div class="cards-container">
-         <h2 class="title">Category: Meals</h2>
+         <h2 class="title">Category: {{category}}</h2>
 
-         <div class="card">
+         <div class="card" *ngFor="let article of articles">
             <div class="card-image-wrapper">
-               <img src="https://images.pexels.com/photos/7342614/pexels-photo-7342614.jpeg?cs=srgb&dl=pexels-antoni-shkraba-7342614.jpg&fm=jpg" alt="" class="card-image">
+               <img src="{{article.heroImage}}" alt="" class="card-image">
             </div>
             <div class="card-details">
                <h2 class="card-title">
                   <a href="">
 
-                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, fuga.
+                     {{article.title}}
                   </a>
                </h2>
                <div class="card-meta">
-                  <span class="card-meta-category">meals</span>
+                  <span class="card-meta-category">{{article.category}}</span>
                   <div class="divider"></div>
-                  <time class="card-meta-pubdate">mar 13 2022</time>
-               </div>
-               <div class="card-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint reprehenderit perspiciatis pariatur modi vel dolorum non illo quaerat debitis est, temporibus distinctio inventore voluptate dolore...</div>
+             <time class="card-meta-pubdate">{{article.publishedAt}}</time>
             </div>
-         </div>
-         <div class="card">
-            <div class="card-image-wrapper">
-               <img src="https://images.pexels.com/photos/7342614/pexels-photo-7342614.jpeg?cs=srgb&dl=pexels-antoni-shkraba-7342614.jpg&fm=jpg" alt="" class="card-image">
-            </div>
-            <div class="card-details">
-               <h2 class="card-title">
-                  <a href="">
+               
+               <div class="card-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint reprehenderit perspiciatis pariatur modi v
 
-                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, fuga.
-                  </a>
-               </h2>
-               <div class="card-meta">
-                  <span class="card-meta-category">meals</span>
-                  <div class="divider"></div>
-                  <time class="card-meta-pubdate">mar 13 2022</time>
-               </div>
-               <div class="card-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint reprehenderit perspiciatis pariatur modi vel dolorum non illo quaerat debitis est, temporibus distinctio inventore voluptate dolore...</div>
-            </div>
-         </div>
+                  </div>
+      </div>
       </div>
    </div>
+</div>
+<ng-http-loader  [minDuration]="300" [extraDuration]="300" [backdropBackgroundColor]="'#fff'" [backgroundColor]="'yellow'" [opacity]="'1'"></ng-http-loader>
+
+   <router-outlet></router-outlet>
