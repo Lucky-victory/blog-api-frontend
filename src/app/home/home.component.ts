@@ -1,6 +1,7 @@
 import { IArticles } from './../app.type';
 import { AppService } from './../app.service';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -8,16 +9,36 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit{
   allArticles: IArticles[] = [];
-  constructor(private service: AppService) {
-    this.service.getArticles().subscribe((response) => {
-      this.allArticles = response.articles;
+  category:string|null='';
+  allCategories:string[]=[];
+  constructor(private service: AppService,private router:Router,private activatedRoute:ActivatedRoute) {
+   
+  }
+  ngOnInit(){
+    this.activatedRoute.queryParamMap.subscribe(params=>{
+       this.category=params.get('category');
+      const categoryPram=this.category ? 'category='+this.category:'';
+      this.service.getArticles(categoryPram).subscribe((res) => {
+        this.allArticles = res.articles;
+      });
+    });
+
+    this.service.getCategories('/categories').subscribe(res=>{
+      this.allCategories=res.categories;
+      console.log(this.allCategories);
     });
   }
+  getCategories(){
+
+    
+
+  }
   getArticleByCategory(category:string){
-    const cat=category ? 'category='+category:'';
-    this.service.getArticles(cat).subscribe(res=>{
+    const categoryParam=category ? 'category='+category:'';
+    this.router.navigate([''],{queryParams:category!=''?{category}:{ }})
+    this.service.getArticles(categoryParam).subscribe(res=>{
       this.allArticles=res.articles
     })
   

@@ -5,15 +5,13 @@
 <div class="container">
    <div class="categories-container">
       <ul class="category-list">
-<li class="category-item">
-   <a  class="category-item-link" (click)="getArticleByCategory('owls')">owls</a>
+<li class="category-item" >
+   <a  class="category-item-link" (click)="getArticleByCategory('')">all</a>
 </li>
-<li class="category-item" (click)="getArticleByCategory('junk')">
-   <a  class="category-item-link">junk</a>
+<li class="category-item" *ngFor="let category of allCategories">
+   <a  class="category-item-link" (click)="getArticleByCategory(category)">{{category}}</a>
 </li>
-<li class="category-item">
-   <a  class="category-item-link" (click)="getArticleByCategory('junks')">junks </a>
-</li>
+
       </ul>
    </div>
   <div class="cards-container">

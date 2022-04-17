@@ -10,6 +10,7 @@ import { ISingleArticle } from './single-article/single-article.type';
 export class AppService {
   private singleArticleUrl= API_BASE_URL+'/article';
   private allPostUrl = API_BASE_URL + '/articles';
+  private apiBaseUrl=API_BASE_URL;
   constructor(private http: HttpClient) {}
   getArticles(path?:string): Observable<IArticlesResponse> {
     return this.http.get<IArticlesResponse>(`${this.allPostUrl}${path ? '?'+path:''}`);
@@ -18,5 +19,8 @@ export class AppService {
     
 return this.http.get<ISingleArticle>(this.singleArticleUrl+'/'+slug);
 
+  }
+  getCategories(path:string):Observable<any>{
+    return this.http.get<any>(`${this.apiBaseUrl}${path ? path:''}`);
   }
 }

@@ -11,11 +11,11 @@ import { IArticles, IArticlesResponse } from '../app.type';
 export class CategoryPageComponent implements OnInit {
 articles:IArticles[]=[];
 category:string|null='';
-  constructor(private route:ActivatedRoute, private service:AppService) { }
+  constructor(private router:ActivatedRoute, private service:AppService) { }
 
   ngOnInit(): void {
     
-    this.route.paramMap.subscribe(params=>{
+    this.router.paramMap.subscribe(params=>{
       this.category=params.get('category')
     });
     this.service.getArticles(`${this.category ? 'category='+this.category:''}`).subscribe(response=>{

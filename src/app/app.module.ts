@@ -6,17 +6,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppService } from './app.service';
 import { HomeComponent } from './home/home.component';
-import { Safe } from './pipes/pipe';
+
 import { SingleArticleComponent } from './single-article/single-article.component';
 import { CategoryPageComponent } from './category-page/category-page.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { NgHttpLoaderModule } from 'ng-http-loader';
+import { AuthorPageComponent } from './author-page/author-page.component';
+import { TagPageComponent } from './tag-page/tag-page.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, SingleArticleComponent,Safe, CategoryPageComponent, NotFoundComponent],
+  declarations: [AppComponent, HomeComponent, SingleArticleComponent, CategoryPageComponent, NotFoundComponent, AuthorPageComponent, TagPageComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule,NgHttpLoaderModule.forRoot()],
   providers: [AppService],
   bootstrap: [AppComponent],
-  exports:[Safe]
+  exports:[]
 })
 export class AppModule {}
