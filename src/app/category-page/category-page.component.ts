@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AppService } from '../app.service';
 import { IArticles, IArticlesResponse } from '../app.type';
 
@@ -11,16 +11,30 @@ import { IArticles, IArticlesResponse } from '../app.type';
 export class CategoryPageComponent implements OnInit {
 articles:IArticles[]=[];
 category:string|null='';
-  constructor(private router:ActivatedRoute, private service:AppService) { }
+  constructor(private activeRoute:ActivatedRoute,private router:Router, private service:AppService) { }
 
   ngOnInit(): void {
     
-    this.router.paramMap.subscribe(params=>{
+    this.activeRoute.paramMap.subscribe(params=>{
       this.category=params.get('category')
     });
     this.service.getArticles(`${this.category ? 'category='+this.category:''}`).subscribe(response=>{
       this.articles=response.articles
     })
   }
-
+  goToPage(path:any[]){
+    this.router.navigate(path);
+  }
+  shortenText(text:string, maxLength:number = 140) {
+    const maxTextLength = maxLength;
+    const textToShorten = String(text);
+    let shortenedText = textToShorten.substring(0, maxTextLength);
+    if (textToShorten.length > maxTextLength) {
+       return `${shortenedText}...`;
+    }
+    else {
+       return shortenedText;
+    }
+ 
+ }
 }

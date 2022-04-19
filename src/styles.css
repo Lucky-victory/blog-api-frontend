@@ -16,6 +16,7 @@ html{
 }
 body{
    background: #f4f7f2;
+   font-family: 'Poppins',sans-serif;
 }
 .grey-bg{
    background: #f5f5f5;
@@ -159,6 +160,10 @@ ul ul ul li::before{
    border-radius: 0!important;
        border: 0.5px solid var(--primary-color);
   
+}
+.container{
+   max-width: 1300px;
+   margin: 0 auto;
 }
 .icon{
    font-size: 16px;

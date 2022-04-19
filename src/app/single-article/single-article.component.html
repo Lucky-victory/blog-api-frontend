@@ -8,7 +8,7 @@
        <a href="">home</a> > <a href="">category</a> > <span>article title</span>
     </div> -->
     <!-- <div *ngIf="singleArticle !=null"> -->
-
+{{baseUrl}}
        <div class="post-title">
           <h1>{{singleArticle.title}}</h1>
          </div>
@@ -68,9 +68,9 @@
             <div class="post-share-btns-wrapper">
                <button class="post-share-btn material-icons-outlined share-icon">share</button>
                <div class="post-share-btns-inner">
-                  <a href="" class="post-share-btn"><i class="devicon-facebook-plain colored"></i></a>
-                  <a href="https://twitter.com/share?url=/post/{{singleArticle.slug}} " target="_blank" class="post-share-btn"><i class="devicon-twitter-plain colored"></i></a>
-                  <a [routerLink]="['/article',singleArticle.slug]" class="post-share-btn material-icons-outlined">link</a>
+                  <button class="post-share-btn" (click)="shareToSocial('facebook',{'url':singleArticle.slug,'text':singleArticle.title})"><i class="devicon-facebook-plain colored"></i></button>
+                  <button (click)="shareToSocial('twitter',{'url':singleArticle.slug,'text':singleArticle.title})"  class="post-share-btn"><i class="devicon-twitter-plain colored"></i></button>
+                  <a  class="post-share-btn material-icons-outlined" title="{{copyLinkTitle}}" (click)="copyLink('https://twitter.com/share?url=/article/'+singleArticle.slug)">link</a>
                </div>
             </div>
          
@@ -78,13 +78,10 @@
       <div class="post-hero-image-wrapper">
          <img src="{{singleArticle.heroImage}}" alt="" class="post-hero-image" />
       </div>
-      <div class="post-content">
+      <div class="post-content" [innerHTML]="singleArticle.content">
          
          
-         <blockquote>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti sed nemo impedit unde beatae earum tenetur doloremque officiis harum quod!
-         </blockquote>
-
+        
        
       </div>
       
@@ -115,6 +112,6 @@
    </div>
 <!-- </div> -->
 </div>
-<ng-http-loader  [minDuration]="300" [extraDuration]="300" [backdropBackgroundColor]="'#fff'" [backgroundColor]="'yellow'" [opacity]="'1'"></ng-http-loader>
+<ng-http-loader  [minDuration]="300" [backdropBackgroundColor]="'#fff'" [backgroundColor]="'#67fcd6'" [opacity]="'1'"></ng-http-loader>
 
 <router-outlet></router-outlet>

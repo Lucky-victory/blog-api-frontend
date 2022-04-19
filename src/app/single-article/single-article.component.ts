@@ -1,4 +1,5 @@
 
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
@@ -34,21 +35,34 @@ singleArticle:ISingleArticle={
     id:''
   }
 };
+baseUrl:string='';
 spinnerStyle=Spinkit;
-  constructor(private route:ActivatedRoute,private router:Router, private service:AppService,private pageTitle:Title, private pageMeta:Meta) { 
+copyLinkTitle:string='copy link';
+  constructor(private activeRoute:ActivatedRoute,private router:Router, private service:AppService,private pageTitle:Title, private pageMeta:Meta,private location:Location) { 
 
   }
 
   ngOnInit(): void {
     let slug:string | null='';
-this.route.paramMap.subscribe(params=>{
+this.activeRoute.paramMap.subscribe(params=>{
    slug=params.get('slug');
    this.service.getSingleArticle(slug).subscribe(onePost=>{
      this.singleArticle=onePost;
      this.setTitle(this.singleArticle.title);
-    })
-  });
-  }
+    
+     this.baseUrl=this.location.path(false);
+     this.pageMeta.addTags([{
+       property:'og:image',content:this.singleArticle.heroImage
+     },{
+            property:'og:title',content:this.singleArticle.title
+         },
+         {
+             name:'description',content:this.singleArticle.title
+           }
+           ],true)
+        });
+    });
+}
   formatDate(date:Date) {
     return new Date(date).toLocaleString('en-US', {
       dateStyle:'medium'
@@ -59,5 +73,23 @@ this.route.paramMap.subscribe(params=>{
   }
   goToPage(path:any[]){
     this.router.navigate(path);
+  }
+  shareToSocial(social:string,options:{url:string,text?:string,via?:string}){
+    const text=options['text'] ? options['text']:'';
+const socialPoviders:{[key:string]:any}={
+  'twitter':`https://twitter.com/share?url=/article/${options['url']}&text=${text}`,
+  'facebook':`http://www.facebook.com/sharer/sharer.php?u=https://4200-luckyvictory-blogapifron-bdig643ohqk.ws-eu40.gitpod.io/article/${options['url']}`
+}
+window.open(`${socialPoviders[social]}`,'','width=700,height=800,top=0,left=400')
+  }
+  copyLink(link:string){
+    this.service.copyToClipboard(link);
+    this.copyLinkTitle='copied';
+    setTimeout(() => {
+      this.copyLinkTitle='copy link'
+    }, 1000);
+  }
+  shareToTwitter(slug:string,text?:string){
+window.open(`https://twitter.com/share?url=${slug}&${text ? 'text='+text:''}`,'','width=700,height=800,top=0,left=400,scrollbar=no')
   }
 }
