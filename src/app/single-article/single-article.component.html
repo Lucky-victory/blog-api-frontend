@@ -8,7 +8,6 @@
        <a href="">home</a> > <a href="">category</a> > <span>article title</span>
     </div> -->
     <!-- <div *ngIf="singleArticle !=null"> -->
-{{baseUrl}}
        <div class="post-title">
           <h1>{{singleArticle.title}}</h1>
          </div>
@@ -68,8 +67,8 @@
             <div class="post-share-btns-wrapper">
                <button class="post-share-btn material-icons-outlined share-icon">share</button>
                <div class="post-share-btns-inner">
-                  <button class="post-share-btn" (click)="shareToSocial('facebook',{'url':singleArticle.slug,'text':singleArticle.title})"><i class="devicon-facebook-plain colored"></i></button>
-                  <button (click)="shareToSocial('twitter',{'url':singleArticle.slug,'text':singleArticle.title})"  class="post-share-btn"><i class="devicon-twitter-plain colored"></i></button>
+                  <button class="post-share-btn" (click)="shareToSocial('facebook',{'url':singleArticle.slug,'text':singleArticle.title})" title="share to facebook"><i class="devicon-facebook-plain colored"></i></button>
+                  <button (click)="shareToSocial('twitter',{'url':singleArticle.slug,'text':singleArticle.title})"  class="post-share-btn" title="share to twitter"><i class="devicon-twitter-plain colored"></i></button>
                   <a  class="post-share-btn material-icons-outlined" title="{{copyLinkTitle}}" (click)="copyLink('https://twitter.com/share?url=/article/'+singleArticle.slug)">link</a>
                </div>
             </div>

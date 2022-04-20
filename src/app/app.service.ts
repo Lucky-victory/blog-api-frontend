@@ -1,4 +1,4 @@
-import { API_BASE_URL } from './constants/utils';
+import { API_BASE_URL } from './constants';
 import { IArticlesResponse } from './app.type';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';

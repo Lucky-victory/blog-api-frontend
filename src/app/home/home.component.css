@@ -1,4 +1,10 @@
 
+.categories-container{
+   position: sticky;
+   top:0;
+   left: 0;
+   z-index:4
+}
 .category-list{
    display: flex;
    gap: 1rem;
@@ -11,7 +17,11 @@
   
 
 }
-
+.category-list::-webkit-scrollbar{
+   width: 0;
+   height: 0;
+   display: none;
+}
 .category-list li::before {
    display: none !important;
 }
@@ -29,7 +39,7 @@
    border-radius: inherit;
    /* border: 2px solid #ccc; */
    border-bottom: 2px solid 
-   #ccc;
+   #ccc0;
    color:#bbb;
    display: block;
    height: 100%;

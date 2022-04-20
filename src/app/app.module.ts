@@ -14,6 +14,7 @@ import { NgHttpLoaderModule } from 'ng-http-loader';
 import { AuthorPageComponent } from './author-page/author-page.component';
 import { TagPageComponent } from './tag-page/tag-page.component';
 import { ClipboardModule } from 'ngx-clipboard';
+import { APP_BASE_HREF, PlatformLocation } from '@angular/common';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, SingleArticleComponent, CategoryPageComponent, NotFoundComponent, AuthorPageComponent, TagPageComponent],

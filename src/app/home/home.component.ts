@@ -2,6 +2,7 @@ import { IArticles } from './../app.type';
 import { AppService } from './../app.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Utils } from '../constants';
 
 
 @Component({
@@ -36,28 +37,18 @@ export class HomeComponent implements OnInit{
 
   }
   getArticleByCategory(category:string){
-    const categoryParam=category ? 'category='+category:'';
-    this.router.navigate([''],{queryParams:category!=''?{category}:{ }})
-    this.service.getArticles(categoryParam).subscribe(res=>{
-      this.allArticles=res.articles
-    })
+    // const categoryParam=category ? 'category='+category:'';
+    // this.router.navigate([''],{queryParams:category!=''?{category}:{ }})
+    // this.service.getArticles(categoryParam).subscribe(res=>{
+    //   this.allArticles=res.articles
+    // })
   
   }
   formatDate(date:Date) {
-    return new Date(date).toLocaleString('en-US', {
-      dateStyle:'medium'
-    });
+   return Utils.formatDate(date)
   }
-  shortenText(text:string, maxLength:number = 140) {
-     const maxTextLength = maxLength;
-     const textToShorten = String(text);
-     let shortenedText = textToShorten.substring(0, maxTextLength);
-     if (textToShorten.length > maxTextLength) {
-        return `${shortenedText}...`;
-     }
-     else {
-        return shortenedText;
-     }
+  shortenText(text:string, maxLength?:number) {
+     return Utils.shortenText(text,maxLength);
   
   }
 }

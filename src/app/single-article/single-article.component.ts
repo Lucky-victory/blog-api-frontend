@@ -5,6 +5,7 @@ import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Spinkit } from 'ng-http-loader';
 import { AppService } from '../app.service';
+import { APP_BASE_URL, Utils } from '../constants';
 import { ISingleArticle } from './single-article.type';
 
 @Component({
@@ -14,6 +15,7 @@ import { ISingleArticle } from './single-article.type';
 })
 
 export class SingleArticleComponent implements OnInit {
+  
 singleArticle:ISingleArticle={
   heroImage:'',
   views:0,
@@ -50,23 +52,13 @@ this.activeRoute.paramMap.subscribe(params=>{
      this.singleArticle=onePost;
      this.setTitle(this.singleArticle.title);
     
-     this.baseUrl=this.location.path(false);
-     this.pageMeta.addTags([{
-       property:'og:image',content:this.singleArticle.heroImage
-     },{
-            property:'og:title',content:this.singleArticle.title
-         },
-         {
-             name:'description',content:this.singleArticle.title
-           }
-           ],true)
+     this.setMetaTags(this.singleArticle)
         });
     });
+    
 }
   formatDate(date:Date) {
-    return new Date(date).toLocaleString('en-US', {
-      dateStyle:'medium'
-    });
+   return Utils.formatDate(date);
   }
   setTitle(newTitle:string){
     this.pageTitle.setTitle(newTitle);
@@ -76,11 +68,11 @@ this.activeRoute.paramMap.subscribe(params=>{
   }
   shareToSocial(social:string,options:{url:string,text?:string,via?:string}){
     const text=options['text'] ? options['text']:'';
-const socialPoviders:{[key:string]:any}={
-  'twitter':`https://twitter.com/share?url=/article/${options['url']}&text=${text}`,
-  'facebook':`http://www.facebook.com/sharer/sharer.php?u=https://4200-luckyvictory-blogapifron-bdig643ohqk.ws-eu40.gitpod.io/article/${options['url']}`
+const socialPoviders:{[key:string]:string}={
+  'twitter':`https://twitter.com/share?url=${APP_BASE_URL}/article/${options['url']}&text=${text}`,
+  'facebook':`http://www.facebook.com/sharer/sharer.php?u=${APP_BASE_URL}/article/${options['url']}`
 }
-window.open(`${socialPoviders[social]}`,'','width=700,height=800,top=0,left=400')
+window.open(`${socialPoviders[social]}`,'','width=700,height=800,top=0,left=400,scrollbar=no')
   }
   copyLink(link:string){
     this.service.copyToClipboard(link);
@@ -89,7 +81,26 @@ window.open(`${socialPoviders[social]}`,'','width=700,height=800,top=0,left=400'
       this.copyLinkTitle='copy link'
     }, 1000);
   }
-  shareToTwitter(slug:string,text?:string){
-window.open(`https://twitter.com/share?url=${slug}&${text ? 'text='+text:''}`,'','width=700,height=800,top=0,left=400,scrollbar=no')
+ 
+  setMetaTags(singleArticle:ISingleArticle){
+    this.pageMeta.addTags([{
+      property:'og:url',content:`${APP_BASE_URL}/article/${this.singleArticle.slug}`
+    },{
+      property:'og:image',content:singleArticle.heroImage
+    },{
+           property:'og:title',content:singleArticle.title
+        },{
+          name:'twitter:creator',content:'@lucky_victory1'
+       },
+       {
+        name:'twitter:image',content:singleArticle.heroImage
+       },
+       {
+           property:'og:type',content:'website'
+        },
+        {
+            property:'og:description',content:singleArticle.title
+          }
+          ],true)
   }
 }

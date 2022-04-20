@@ -6,10 +6,10 @@
    <div class="categories-container">
       <ul class="category-list">
 <li class="category-item" >
-   <a  class="category-item-link active" routerLink="''" routerLinkActive="active" [routerLinkActiveOptions]="{exact:false}" (click)="getArticleByCategory('')">all</a>
+   <a  class="category-item-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" routerLink="" >all</a>
 </li>
 <li class="category-item" *ngFor="let category of allCategories">
-   <a  class="category-item-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:false}" (click)="getArticleByCategory(category)">{{category}}</a>
+   <a  class="category-item-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:false}" routerLink="" [queryParams]="{category}">{{category}}</a>
 </li>
 
       </ul>
