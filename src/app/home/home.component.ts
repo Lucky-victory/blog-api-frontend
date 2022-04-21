@@ -3,6 +3,7 @@ import { AppService } from './../app.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Utils } from '../constants';
+import { LoaderComponent } from '../loader/loader.component';
 
 
 @Component({
@@ -14,6 +15,7 @@ export class HomeComponent implements OnInit{
   allArticles: IArticles[] = [];
   category:string|null='';
   allCategories:string[]=[];
+  //loaderComponent=LoaderComponent;
   constructor(private service: AppService,private router:Router,private activatedRoute:ActivatedRoute) {
    
   }

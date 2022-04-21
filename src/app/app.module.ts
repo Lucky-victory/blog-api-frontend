@@ -15,9 +15,12 @@ import { AuthorPageComponent } from './author-page/author-page.component';
 import { TagPageComponent } from './tag-page/tag-page.component';
 import { ClipboardModule } from 'ngx-clipboard';
 import { APP_BASE_HREF, PlatformLocation } from '@angular/common';
+import { LoaderComponent } from './loader/loader.component';
+import { AuthorDirective } from './author.directive';
+import { BackNavigateComponent } from './back-navigate/back-navigate.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, SingleArticleComponent, CategoryPageComponent, NotFoundComponent, AuthorPageComponent, TagPageComponent],
+  declarations: [AppComponent, HomeComponent, SingleArticleComponent, CategoryPageComponent, NotFoundComponent, AuthorPageComponent, TagPageComponent, LoaderComponent, AuthorDirective, BackNavigateComponent],
   imports: [BrowserModule,ClipboardModule, AppRoutingModule, HttpClientModule,NgHttpLoaderModule.forRoot()],
   providers: [AppService],
   bootstrap: [AppComponent],

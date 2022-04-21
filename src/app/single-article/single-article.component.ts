@@ -99,8 +99,11 @@ window.open(`${socialPoviders[social]}`,'','width=700,height=800,top=0,left=400,
            property:'og:type',content:'website'
         },
         {
-            property:'og:description',content:singleArticle.title
+            property:'og:description',content:this.shortenText(singleArticle.content)
           }
           ],true)
+  }
+  shortenText(text:string){
+    return Utils.shortenText(text)
   }
 }

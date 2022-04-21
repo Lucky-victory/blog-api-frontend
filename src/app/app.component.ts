@@ -3,6 +3,8 @@ import { IArticles, IArticlesResponse } from './app.type';
 import { Component } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { AppService } from './app.service';
+import { LoaderComponent } from './loader/loader.component';
+
 
 @Component({
   selector: 'app-root',
@@ -12,6 +14,7 @@ import { AppService } from './app.service';
 export class AppComponent {
   title = 'blog-api-frontend';
   post: IArticles[] = [];
+  loaderComponent=LoaderComponent;
   constructor(
     private service: AppService,
     private meta: Meta,
