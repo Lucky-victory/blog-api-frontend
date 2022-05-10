@@ -14,13 +14,17 @@ import { NgHttpLoaderModule } from 'ng-http-loader';
 import { AuthorPageComponent } from './author-page/author-page.component';
 import { TagPageComponent } from './tag-page/tag-page.component';
 import { ClipboardModule } from 'ngx-clipboard';
-import { APP_BASE_HREF, PlatformLocation } from '@angular/common';
 import { LoaderComponent } from './loader/loader.component';
 import { AuthorDirective } from './author.directive';
 import { BackNavigateComponent } from './back-navigate/back-navigate.component';
+import { AuthorComponent } from './sub-components/author/author.component';
+import { ArticleCardComponent } from './sub-components/article-card/article-card.component';
+import { CardComponent } from './sub-components/card/card.component';
+import { DateFormatterPipe } from './date-formatter.pipe';
+import { TextShortenerPipe } from './text-shortener.pipe';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, SingleArticleComponent, CategoryPageComponent, NotFoundComponent, AuthorPageComponent, TagPageComponent, LoaderComponent, AuthorDirective, BackNavigateComponent],
+  declarations: [AppComponent, HomeComponent, SingleArticleComponent, CategoryPageComponent, NotFoundComponent, AuthorPageComponent, TagPageComponent, LoaderComponent, AuthorDirective, BackNavigateComponent, AuthorComponent, ArticleCardComponent, CardComponent, DateFormatterPipe, TextShortenerPipe],
   imports: [BrowserModule,ClipboardModule, AppRoutingModule, HttpClientModule,NgHttpLoaderModule.forRoot()],
   providers: [AppService],
   bootstrap: [AppComponent],

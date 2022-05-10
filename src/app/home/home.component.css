@@ -13,7 +13,7 @@
    padding: 1rem;
    padding-bottom: 0;
    border-radius: 0.5rem;
-   box-shadow: 3px 3px 8px #0003;
+   box-shadow: 3px 3px 6px #0003;
   
 
 }
@@ -28,7 +28,7 @@
 
 .category-item {
    /* border-radius: 2rem; */
-   font-weight: 600;
+   font-weight: 500;
    text-transform: uppercase;
    font-family: inherit;
    margin-bottom: 0;
@@ -38,12 +38,12 @@
 .category-item-link {
    border-radius: inherit;
    /* border: 2px solid #ccc; */
-   border-bottom: 2px solid 
+   border-bottom: 3px solid 
    #ccc0;
    color:#bbb;
    display: block;
    height: 100%;
-   padding: 0.5rem 1.5rem;
+   padding: 0.5rem 1rem;
 
 }
 .category-item-link:hover{
@@ -79,81 +79,4 @@
    padding: 1rem;
    display: flex;
    flex-direction: column;
-}
-.card-image-wrapper{
-   height: 250px;
-   width: 100%;
-   background: #000;
-   border-radius: 0.75rem ;
-   position: relative;
-}
-.card-image{
-   width: 100%;
-   height: 100%;
-   object-fit: cover;
-      border-radius: inherit;
-      position: absolute;
-}
-.card-details{
-   /* padding:1rem 0.75rem; */
-   display: flex;
-   align-items: center;
-   width: 100%;
-   gap:0.5rem;
-   font-size: 14px;
-   font-family: 'Poppins',sans-serif;
-}
-.card-category{
-   text-transform: uppercase;
-   font-weight: 500;
-   color: var(--alternative-color);
-   font-size: 14px;
-}
-.card-info{
-   padding-top: 1rem;
-   padding-bottom: 0;
-   flex: 1
-}
-.card-info-inner{
-   margin-bottom: 1rem;
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
-   font-family: 'Poppins',sans-serif;
-   
-   
-}
-.card-title{
-   text-transform: capitalize;
-   margin: 1rem 0;
-}
-.card-desc{
-   margin:0.5rem 0 ;
-}
-.card-views,.card-comment{
-   color: var(--alternative-color);
-   font-weight: 500;
-   display: flex;
-   align-items: center;
-   gap:0.25rem;
-   font-size: 14px;
-}
-
-.card-author{
-   display: flex;
-   align-items: center;
-   text-transform: uppercase;
-   gap:0.5rem;
-   color: var(--alternative-color);
-}
-.card-author-name{
-   text-decoration: none;
-   color: var(--link-color);
-}
-.card-pubdate{
-   text-transform: uppercase;
-   font-weight: 500;
-      color: var(--alternative-color);
-font-size: 14px;
-
 }

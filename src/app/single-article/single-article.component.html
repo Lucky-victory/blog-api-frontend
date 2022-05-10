@@ -31,7 +31,7 @@
          
          <div class="post-pub-info">
    
-            <time class="post-pub-date">{{formatDate(singleArticle.publishedAt)}}</time>
+            <time class="post-pub-date">{{singleArticle.publishedAt| dateFormatter:'long'}}</time>
             <div class="post-pub-read-time">{{singleArticle.readTime}} min read</div>
          
       </div>
@@ -41,7 +41,7 @@
 
             <div class="flex ai-c jc-sb mb-1r">
                <div class="post-category">
-               <i class="material-icons-outlined">sell</i>
+               <i class="material-icons-outlined">label</i>
                <a (click)="goToPage(['category/',singleArticle.category])">
                   
                   {{singleArticle.category}}
@@ -51,11 +51,11 @@
             <div class="flex ai-c gap-1r">
                
                <div class="post-pub-views ">
-                  <i class="material-icons-outlined">comment</i>
+                  <i class="material-symbols-rounded">comment</i>
                   <span>{{singleArticle.comments.length}}</span>
                </div>
                <div class="post-pub-views ">
-                  <i class="material-icons-outlined">visibility</i>
+                  <i class="material-symbols-rounded">monitoring</i>
                   <span>{{singleArticle.views}}</span>
                </div>
             </div>

@@ -3,7 +3,6 @@ import { AppService } from './../app.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Utils } from '../constants';
-import { LoaderComponent } from '../loader/loader.component';
 
 
 @Component({
@@ -15,7 +14,7 @@ export class HomeComponent implements OnInit{
   allArticles: IArticles[] = [];
   category:string|null='';
   allCategories:string[]=[];
-  //loaderComponent=LoaderComponent;
+  
   constructor(private service: AppService,private router:Router,private activatedRoute:ActivatedRoute) {
    
   }
@@ -30,7 +29,7 @@ export class HomeComponent implements OnInit{
 
     this.service.getCategories('/categories').subscribe(res=>{
       this.allCategories=res.categories;
-      console.log(this.allCategories);
+     
     });
   }
   getCategories(){
@@ -46,11 +45,5 @@ export class HomeComponent implements OnInit{
     // })
   
   }
-  formatDate(date:Date) {
-   return Utils.formatDate(date)
-  }
-  shortenText(text:string, maxLength?:number) {
-     return Utils.shortenText(text,maxLength);
-  
-  }
+ 
 }

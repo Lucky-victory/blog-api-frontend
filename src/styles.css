@@ -15,7 +15,7 @@ html{
    --alternative-color:#596e5c;
 }
 body{
-   background: #f4f7f2;
+   background: #f1f1f1;
    font-family: 'Poppins',sans-serif;
 }
 .grey-bg{
@@ -39,10 +39,10 @@ padding-bottom: 5px;
    padding-left: 5px;
    padding-right: 5px;
 }
-.material-icons-outlined,.material-icons{
+.material-symbols-rounded{
    overflow: hidden;
    line-height: 1;
-   font-size: 16px !important;
+  
 }
 .flex{
    display: flex;
@@ -105,7 +105,7 @@ p{
 }
 blockquote{
    margin: 2rem 0;
-   margin-left: 1.5rem;
+   margin-left: 1rem;
    padding: 0.75rem;
    border-radius: 0.5rem;
    padding-left: 1.5rem;
@@ -166,12 +166,13 @@ ul ul ul li::before{
    margin: 0 auto;
 }
 .icon{
-   font-size: 16px;
-   color: var(--primary-color);
+   font-size: 22px;
+   color: var(--alternative-color);
 }
 .icon-wrapper{
    display: flex;
    align-items: center;
+   font-size: 18px;
 }
 /* global class for author */
 .author-name{

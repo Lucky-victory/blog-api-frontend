@@ -2,13 +2,40 @@
 
 .container{
    padding: 2rem 1rem;
-   margin: 2rem auto;
+   margin: 0 auto;
    max-width: 1000px;
+   background: #fff;
+}
+.header{
+   height: 250px;
+   background: #a33333;
+   border-radius:0.5rem 0.5rem 0 0 ;
+  position: relative;
+}
+.header-bg{
+   height: 100%;
+   border-radius:0.5rem 0.5rem 0 0 ;
+   background-color:#0006;
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-blend-mode: soft-light;
+   width: 100%;
+   position: absolute;
+
 }
 .title{
-   margin-bottom: 2rem;
+   /* margin-bottom: 2rem; */
    color: var(--primary-color);
    text-transform: uppercase;
+   position: absolute;
+   z-index: 2;
+   bottom: 0;
+   left: 50%;
+   background: #fff;
+   padding: 1rem;
+   border-radius:3rem;
+   transform: translateX(-50%);
 }
 .cards-container{
    display: flex;
