@@ -18,8 +18,10 @@
       </span>
       </a>
 </li>
-<li class="category-item" *ngFor="let category of allCategories">
-   <a  class="category-item-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:false}" routerLink="" [queryParams]="{category}">{{category}}</a>
+<li class="category-item" >
+   <a  class="category-item-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:false}" routerLink="" [queryParams]="{sort:'popular'}">
+      <span class="material-symbols-rounded">star</span>
+      popular</a>
 </li>
 
       </ul>
