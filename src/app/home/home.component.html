@@ -1,7 +1,12 @@
 <style>
   @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 </style>
-<div class="container">
+<header class="banner">
+   <div class="banner-bg" style="background-image:url(https://images.pexels.com/photos/2350592/pexels-photo-2350592.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940) ;">
+
+   </div>
+</header>
+<main class="container">
    <div class="categories-container">
       <ul class="category-list">
 <li class="category-item" >
@@ -20,13 +25,13 @@
       </ul>
    </div>
   <div class="cards-container" >
-     <div class="card" *ngFor="let article of allArticles">
+     <article class="card" *ngFor="let article of allArticles">
 
         <app-article-card  [article]="article">
            
       </app-article-card>
-   </div>
+   </article>
          
   </div>
-  </div>
+  </main>
 <!-- <router-outlet></router-outlet> -->

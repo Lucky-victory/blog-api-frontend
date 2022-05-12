@@ -16,25 +16,15 @@ category:string|null='';
   ngOnInit(): void {
     
     this.activeRoute.paramMap.subscribe(params=>{
-      this.category=params.get('category')
+    this.category=params.get('category');
+  
     });
-    this.service.getArticles(`${this.category ? 'category='+this.category:''}`).subscribe(response=>{
+    this.service.getArticles(`${'category='+this.category}`).subscribe(response=>{
       this.articles=response.articles
     })
   }
-  goToPage(path:any[]){
+  goToPage(path:any[]):void{
     this.router.navigate(path);
   }
-  shortenText(text:string, maxLength:number = 140) {
-    const maxTextLength = maxLength;
-    const textToShorten = String(text);
-    let shortenedText = textToShorten.substring(0, maxTextLength);
-    if (textToShorten.length > maxTextLength) {
-       return `${shortenedText}...`;
-    }
-    else {
-       return shortenedText;
-    }
  
- }
 }

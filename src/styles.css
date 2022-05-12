@@ -15,7 +15,7 @@ html{
    --alternative-color:#596e5c;
 }
 body{
-   background: #f1f1f1;
+   background: #fff;
    font-family: 'Poppins',sans-serif;
 }
 .grey-bg{
@@ -107,7 +107,7 @@ blockquote{
    margin: 2rem 0;
    margin-left: 1rem;
    padding: 0.75rem;
-   border-radius: 0.5rem;
+   border-radius: 0.25rem;
    padding-left: 1.5rem;
    border-left: 4px solid var(--primary-color);
    background: var(--primary-color-light);

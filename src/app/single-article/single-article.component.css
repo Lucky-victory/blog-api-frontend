@@ -5,6 +5,7 @@
    margin: 0 auto;
    font-family: 'Nunito', sans-serif;
 background: #fff;
+box-shadow: 0 4px 8px #0002;
 }
 
 .post-title {

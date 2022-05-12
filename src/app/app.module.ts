@@ -23,6 +23,7 @@ import { CardComponent } from './sub-components/card/card.component';
 import { DateFormatterPipe } from './date-formatter.pipe';
 import { TextShortenerPipe } from './text-shortener.pipe';
 
+
 @NgModule({
   declarations: [AppComponent, HomeComponent, SingleArticleComponent, CategoryPageComponent, NotFoundComponent, AuthorPageComponent, TagPageComponent, LoaderComponent, AuthorDirective, BackNavigateComponent, AuthorComponent, ArticleCardComponent, CardComponent, DateFormatterPipe, TextShortenerPipe],
   imports: [BrowserModule,ClipboardModule, AppRoutingModule, HttpClientModule,NgHttpLoaderModule.forRoot()],
