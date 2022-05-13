@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ActivatedRoute, Router } from '@angular/router';
+import { AppService } from '../app.service';
+import { IArticles, IArticlesResponse } from '../app.type';
 @Component({
   selector: 'app-author-page',
   templateUrl: './author-page.component.html',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthorPageComponent implements OnInit {
 
-  constructor() { }
+articles:IArticles[]=[];
+authorName:string|null='';
+  constructor(private activeRoute:ActivatedRoute,private router:Router, private service:AppService) { }
 
   ngOnInit(): void {
+    
+    this.activeRoute.paramMap.subscribe(params=>{
+    this.authorName=params.get('username');
+  
+    });
+    this.service.get(`${'author/'+this.authorName}`).subscribe(response=>{
+      this.articles = response.articles;
+      console.log(this.articles);
+      
+    })
   }
-
+  goToPage(path:any[]):void{
+    this.router.navigate(path);
+  }
+ 
 }

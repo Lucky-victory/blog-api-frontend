@@ -13,15 +13,41 @@
    <a  class="category-item-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" routerLink="" >
       <span class="flex ai-c gap-05r">
 
-         <i class="material-symbols-rounded">personalized_recommendations</i> feed
+         <i class="material-symbols-rounded">newspaper</i> feed
          
       </span>
       </a>
 </li>
+
 <li class="category-item" >
-   <a  class="category-item-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:false}" routerLink="" [queryParams]="{sort:'popular'}">
-      <span class="material-symbols-rounded">star</span>
-      popular</a>
+   <a  class="category-item-link " routerLinkActive="active" [routerLinkActiveOptions]="{exact:false}" routerLink="" [queryParams]="{sort:'latest'}" >
+      <span class="flex ai-c gap-05r">
+
+         <i class="material-symbols-rounded">personalized_recommendations</i>
+         latest
+      </span>
+   
+   </a>
+</li>
+<li class="category-item" >
+   <a  class="category-item-link " routerLinkActive="active" [routerLinkActiveOptions]="{exact:false}" routerLink="" [queryParams]="{sort:'short'}" >
+      <span class="flex ai-c gap-05r">
+
+         <i class="material-symbols-rounded">short_text</i>
+      easy read
+      </span>
+   
+   </a>
+</li>
+<li class="category-item" >
+   <a  class="category-item-link " routerLinkActive="active" [routerLinkActiveOptions]="{exact:false}" routerLink="" [queryParams]="{sort:'long'}" >
+      <span class="flex ai-c gap-05r">
+
+         <i class="material-symbols-rounded">receipt_long</i>
+      long read
+      </span>
+   
+   </a>
 </li>
 
       </ul>

@@ -1,32 +1,40 @@
-<!-- 
-   <div class="container">
-    <div class="cards-container">
-       <h2 class="title">Category: {{category}}</h2>
+ <div class="container">
+      <div class="header" >
+         <div class="header-bg" style="background-image:url(https://images.pexels.com/photos/718324/pexels-photo-718324.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260) ;">
+         
+         </div>
+         <div class="header-author">
 
-       <div class="card" *ngFor="let article of articles">
-          <div class="card-image-wrapper">
-             <img src="{{article.heroImage}}" alt="" class="card-image">
-          </div>
-          <div class="card-details">
-             <h2 class="card-title">
-                <a href="">
+            <div class="header-author-image-wrapper"><img src="{{articles[0].author.profileImage}}" alt="" class="header-author-image">
+            </div>
+            <div class="header-author-info">
+               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque quaerat illo quos sint ab doloribus?
+            </div>
+         </div>
+      </div>
+      <div class="cards-container">
 
-                   {{article.title}}
-                </a>
-             </h2>
-             <div class="card-meta">
-                <span class="card-meta-category">{{article.category}}</span>
-                <div class="divider"></div>
-           <time class="card-meta-pubdate">{{article.publishedAt}}</time>
-          </div>
-             
-             <div class="card-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint reprehenderit perspiciatis pariatur modi v
+         <div class="card" *ngFor="let article of articles">
+            <div class="card-image-wrapper">
+               <img src="{{article.heroImage}}" alt="" class="card-image">
+            </div>
+            <div class="card-details">
+               <h2 class="card-title">
+                  <a (click)="goToPage(['article',article.slug])">
 
-                </div>
-    </div>
-    </div>
- </div>
+                     {{article.title}}
+                  </a>
+               </h2>
+               <div class="card-meta">
+                  <span class="card-meta-category">{{article.category}}</span>
+                  <div class="divider"></div>
+             <time class="card-meta-pubdate">{{article.publishedAt|dateFormatter}}</time>
+            </div>
+               
+               <div class="card-desc" [innerHTML]="article.content|textShortener">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint reprehenderit perspiciatis pariatur modi v
+
+                  </div>
+      </div>
+      </div>
+   </div>
 </div>
-<ng-http-loader  [minDuration]="300"  [backdropBackgroundColor]="'#fff'" [backgroundColor]="'yellow'" [opacity]="'1'"></ng-http-loader>
-
- <router-outlet></router-outlet> -->

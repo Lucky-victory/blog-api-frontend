@@ -19,7 +19,7 @@ category:string|null='';
     this.category=params.get('category');
   
     });
-    this.service.getArticles(`${'category='+this.category}`).subscribe(response=>{
+    this.service.getArticles({category:this.category}).subscribe(response=>{
       this.articles=response.articles
     })
   }

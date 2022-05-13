@@ -12,7 +12,7 @@ import { Utils } from '../constants';
 })
 export class HomeComponent implements OnInit{
   allArticles: IArticles[] = [];
-  category:string|null='';
+  sortBy:string|null='';
   allCategories:string[]=[];
   
   constructor(private service: AppService,private router:Router,private activatedRoute:ActivatedRoute) {
@@ -20,9 +20,9 @@ export class HomeComponent implements OnInit{
   }
   ngOnInit(){
     this.activatedRoute.queryParamMap.subscribe(params=>{
-       this.category=params.get('category');
-      const categoryPram=this.category ? 'category='+this.category:'';
-      this.service.getArticles(categoryPram).subscribe((res) => {
+       this.sortBy=params.get('sort');
+      const sortQueryParam = this.sortBy ? { sort: this.sortBy }:{};
+      this.service.getArticles(sortQueryParam).subscribe((res) => {
         this.allArticles = res.articles;
       });
     });
