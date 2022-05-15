@@ -2,35 +2,39 @@
 <div class="card-image-wrapper">
        <img src="{{article.heroImage}}" alt="" class="card-image">
     </div>
-    <div class='card-info'>
-       <div class='card-info-inner'>
-          <span class='card-category'>{{article.category ? article.category : ''}}</span>
-          <div class='flex gap-1r ai-c'>
-             <span class='icon-wrapper card-comment'><i class='material-symbols-rounded icon'>menu_book</i>{{article.readTime}}</span>
-             <span class='icon-wrapper card-comment'><i class='material-symbols-rounded icon'>comment</i>{{article.comments ? article.comments.length : 0}}</span>
-             <span class='icon-wrapper card-views'><i class='material-symbols-rounded icon'>monitoring</i> {{article.views}}</span>
+    <div class="card-inner">
+
+       <div class='card-info'>
+          <div class='card-info-inner'>
+             <span class='card-category'  *ngIf="article.category">{{article.category}}</span>
+             <div class='flex gap-1r ai-c'>
+             <span class='icon-wrapper card-comment card-meta'><i class='material-symbols-rounded icon'>menu_book</i>{{article.readTime}}</span>
+             <span class='icon-wrapper card-comment card-meta' ><i class='material-symbols-rounded icon'>comment</i>{{article.comments ? article.comments.length : 0}}</span>
+             <span class='icon-wrapper card-views card-meta'><i class='material-symbols-rounded icon'>monitoring</i> {{article.views}}</span>
           </div>
        </div>
        <h2 class='card-title'><a [routerLink]="['article/',article.slug]" class="primary">
           {{article.title}}
-       </a>
-       </h2>
-
-       <div class="card-desc" [innerHtml]="article.intro ? (article.intro|textShortener) : (article.content|textShortener) ">
+         </a>
+      </h2>
+      
+      <div class="card-desc" [innerHtml]="article.intro ? (article.intro|textShortener) : (article.content|textShortener) ">
          
        </div>
-    </div>
+      </div>
     <div class="card-details">
        <div class='author-image-wrapper'>
           <img class='author-image' src='{{article.author.profileImage}}' />
        </div>
        <span class='card-author'>
           By
-          <a class='card-author-name' [routerLink]='["author/",article.author.username]'>{{article.author.fullname}}</a></span>
-       <span class='divider'></span>
-       <time class='card-pubdate'>{{article.publishedAt|dateFormatter:'medium'}}</time>
-
-    </div>
-
+          <a class='card-author-name' [routerLink]='["/author/",article.author.username]'>{{article.author.fullname}}</a></span>
+          <span class='divider'></span>
+       <time class='card-pubdate card-meta'>{{article.publishedAt|dateFormatter:'medium'}}</time>
+       
+      </div>
+      
+   </div>
     
 
+      

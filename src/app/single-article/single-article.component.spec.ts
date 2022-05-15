@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { singleArticleComponent } from './single-article.component';
+import { SingleArticleComponent } from './single-article.component';
 
 describe('singleArticleComponent', () => {
-  let component: singleArticleComponent;
-  let fixture: ComponentFixture<singleArticleComponent>;
+  let component: SingleArticleComponent;
+  let fixture: ComponentFixture<SingleArticleComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ singleArticleComponent ]
+      declarations: [ SingleArticleComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(singleArticleComponent);
+    fixture = TestBed.createComponent(SingleArticleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

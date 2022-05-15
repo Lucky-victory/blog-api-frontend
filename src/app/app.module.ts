@@ -20,8 +20,8 @@ import { BackNavigateComponent } from './back-navigate/back-navigate.component';
 import { AuthorComponent } from './sub-components/author/author.component';
 import { ArticleCardComponent } from './sub-components/article-card/article-card.component';
 import { CardComponent } from './sub-components/card/card.component';
-import { DateFormatterPipe } from './date-formatter.pipe';
-import { TextShortenerPipe } from './text-shortener.pipe';
+import { DateFormatterPipe } from '../pipes/date-formatter.pipe';
+import { TextShortenerPipe } from '../pipes/text-shortener.pipe';
 
 
 @NgModule({

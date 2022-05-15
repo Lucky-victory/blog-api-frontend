@@ -5,7 +5,8 @@ import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Spinkit } from 'ng-http-loader';
 import { AppService } from '../app.service';
-import { APP_BASE_URL, Utils } from '../constants';
+import { APP_BASE_URL} from '../constants';
+import { TextShortenerPipe } from '../../pipes/text-shortener.pipe';
 import { ISingleArticle } from './single-article.type';
 
 @Component({
@@ -27,7 +28,7 @@ singleArticle:ISingleArticle={
   ,id:'',
   publishedAt:new Date(),
   category:'',
-  comments:[],
+  commentsCount:0,
   author:{
     bio:'',
     username:'',
@@ -37,10 +38,10 @@ singleArticle:ISingleArticle={
     id:''
   }
 };
-baseUrl:string='';
+baseUrl:string=APP_BASE_URL;
 spinnerStyle=Spinkit;
 copyLinkTitle:string='copy link';
-  constructor(private activeRoute:ActivatedRoute,private router:Router, private service:AppService,private pageTitle:Title, private pageMeta:Meta,private location:Location) { 
+  constructor(private activeRoute:ActivatedRoute,private router:Router, private service:AppService,private pageTitle:Title, private pageMeta:Meta) { 
 
   }
 
@@ -48,8 +49,9 @@ copyLinkTitle:string='copy link';
     let slug:string | null='';
 this.activeRoute.paramMap.subscribe(params=>{
    slug=params.get('slug');
-   this.service.getSingleArticle(slug).subscribe(onePost=>{
-     this.singleArticle=onePost;
+  this.service.getSingleArticle(slug).subscribe(article => {
+    
+     this.singleArticle=article;
      this.setTitle(this.singleArticle.title);
     
      this.setMetaTags(this.singleArticle)
@@ -57,9 +59,7 @@ this.activeRoute.paramMap.subscribe(params=>{
     });
     
 }
-  formatDate(date:Date) {
-   return Utils.formatDate(date);
-  }
+ 
   setTitle(newTitle:string){
     this.pageTitle.setTitle(newTitle);
   }
@@ -98,12 +98,8 @@ window.open(`${socialPoviders[social]}`,'','width=700,height=800,top=0,left=400,
        {
            property:'og:type',content:'website'
         },
-        {
-            property:'og:description',content:this.shortenText(singleArticle.content)
-          }
+       
           ],true)
   }
-  shortenText(text:string){
-    return Utils.shortenText(text)
-  }
+ 
 }

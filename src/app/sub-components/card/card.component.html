@@ -1,1 +1,22 @@
-<p>card works!</p>
+         <div class="card-image-wrapper">
+               <img src="{{article.heroImage}}" alt="" class="card-image">
+            </div>
+            <div class="card-details">
+               <h2 class="card-title">
+                  <a routerLink="{{'/article/'+article.slug}}">
+
+                     {{article.title}}
+                  </a>
+               </h2>
+               <div class="card-meta">
+                  <span class="card-meta-category">{{article.category}}</span>
+                  <div class="divider"></div>
+                  <time class="card-meta-pubdate">{{article.publishedAt|dateFormatter}}</time>
+                  <div class="divider"></div>
+                  <span class="card-meta-author">{{article?.author?.fullname}}</span>
+
+            </div>
+               
+               <div class="card-desc" [innerHTML]="article.content|textShortener">
+                  </div>
+      </div>

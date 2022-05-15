@@ -10,7 +10,7 @@ export interface ISingleArticle{
     readTime:number;
     publishedAt:Date;
     category:string;
-    comments:string[],
+    commentsCount:number,
     author:IArticleAuthor
     
 }

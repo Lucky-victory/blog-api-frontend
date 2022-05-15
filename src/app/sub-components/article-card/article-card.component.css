@@ -2,8 +2,9 @@
     height: 250px;
     width: 100%;
     background: #000;
-    border-radius: 0.5rem ;
+    border-radius: 0.5rem 0.5rem 0 0 ;
     position: relative;
+   
  }
  .card-image{
     width: 100%;
@@ -11,6 +12,9 @@
     object-fit: cover;
        border-radius: inherit;
        position: absolute;
+ }
+ .card-inner{
+    padding: 1rem;
  }
  .card-details{
     /* padding:1rem 0.75rem; */
@@ -38,13 +42,14 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-family: 'Poppins',sans-serif;
+    /*font-family: 'Poppins',sans-serif;*/
     
     
  }
  .card-title{
     text-transform: capitalize;
     margin: 1rem 0;
+font-size: calc(1.2rem + 1vw );
  }
  .card-desc{
     margin:0.5rem 0 ;
@@ -77,3 +82,9 @@
  
  }
  
+
+ @media all and (max-width:450px){
+    .card-meta,.card-author-name{
+       font-size: 14px;
+    }
+ }

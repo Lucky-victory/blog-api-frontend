@@ -5,36 +5,24 @@
          </div>
          <div class="header-author">
 
-            <div class="header-author-image-wrapper"><img src="{{articles[0].author.profileImage}}" alt="" class="header-author-image">
+            <div class="header-author-image-wrapper"><img src="{{articles[0]?.author?.profileImage}}" alt="" class="header-author-image">
+            </div>
+            <div class="header-author-info">
+               <h1 class="header-author-name ta-center">{{articles[0]?.author?.fullname}}</h1>
+               <div class="header-author-social">
+
+               </div>
             </div>
             <div class="header-author-info">
                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque quaerat illo quos sint ab doloribus?
             </div>
          </div>
       </div>
+      <span >{{articles.length}} articles</span>
       <div class="cards-container">
 
          <div class="card" *ngFor="let article of articles">
-            <div class="card-image-wrapper">
-               <img src="{{article.heroImage}}" alt="" class="card-image">
-            </div>
-            <div class="card-details">
-               <h2 class="card-title">
-                  <a (click)="goToPage(['article',article.slug])">
-
-                     {{article.title}}
-                  </a>
-               </h2>
-               <div class="card-meta">
-                  <span class="card-meta-category">{{article.category}}</span>
-                  <div class="divider"></div>
-             <time class="card-meta-pubdate">{{article.publishedAt|dateFormatter}}</time>
-            </div>
-               
-               <div class="card-desc" [innerHTML]="article.content|textShortener">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint reprehenderit perspiciatis pariatur modi v
-
-                  </div>
-      </div>
+   <app-card [article]="article"></app-card>
       </div>
    </div>
 </div>

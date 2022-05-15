@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, } from '@angular/router';
 import { AuthorPageComponent } from './author-page/author-page.component';
@@ -5,6 +6,7 @@ import { CategoryPageComponent } from './category-page/category-page.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { SingleArticleComponent } from './single-article/single-article.component';
+import { TagPageComponent } from './tag-page/tag-page.component';
 
 const routes: Routes = [
   {
@@ -14,9 +16,13 @@ const routes: Routes = [
   {
     path: 'article/:slug',
     component: SingleArticleComponent,
+  },  {
+    path: 'tags/:tag',
+    component: TagPageComponent,
   },
+
   {
-    path:'category/:category',
+    path:'categories/:category',
     component:CategoryPageComponent
   },
   {

@@ -11,26 +11,8 @@
       <div class="cards-container">
 
          <div class="card" *ngFor="let article of articles">
-            <div class="card-image-wrapper">
-               <img src="{{article.heroImage}}" alt="" class="card-image">
-            </div>
-            <div class="card-details">
-               <h2 class="card-title">
-                  <a (click)="goToPage(['article',article.slug])">
+     <app-card [article]="article"></app-card>
 
-                     {{article.title}}
-                  </a>
-               </h2>
-               <div class="card-meta">
-                  <span class="card-meta-category">{{article.category}}</span>
-                  <div class="divider"></div>
-             <time class="card-meta-pubdate">{{article.publishedAt|dateFormatter}}</time>
-            </div>
-               
-               <div class="card-desc" [innerHTML]="article.content|textShortener">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint reprehenderit perspiciatis pariatur modi v
-
-                  </div>
-      </div>
       </div>
    </div>
 </div>
