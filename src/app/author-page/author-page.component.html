@@ -19,10 +19,5 @@
          </div>
       </div>
       <span >{{articles.length}} articles</span>
-      <div class="cards-container">
-
-         <div class="card" *ngFor="let article of articles">
-   <app-card [article]="article"></app-card>
-      </div>
+      <app-card [articles]="articles"></app-card>
    </div>
-</div>

@@ -17,27 +17,7 @@ import { ISingleArticle } from './single-article.type';
 
 export class SingleArticleComponent implements OnInit {
   
-singleArticle:ISingleArticle={
-  heroImage:'',
-  views:0,
-  slug:'',
-  title:'',
-  content:'',
-  tags:[],
-  readTime:0
-  ,id:'',
-  publishedAt:new Date(),
-  category:'',
-  commentsCount:0,
-  author:{
-    bio:'',
-    username:'',
-    fullname:'',
-    twitter:'',
-    profileImage:'https://images.pexels.com/photos/1615776/pexels-photo-1615776.jpeg?cs=srgb&dl=pexels-rodolfo-clix-1615776.jpg&fm=jpg&w=640&h=960',
-    id:''
-  }
-};
+  singleArticle!: ISingleArticle;
 baseUrl:string=APP_BASE_URL;
 spinnerStyle=Spinkit;
 copyLinkTitle:string='copy link';
@@ -63,9 +43,7 @@ this.activeRoute.paramMap.subscribe(params=>{
   setTitle(newTitle:string){
     this.pageTitle.setTitle(newTitle);
   }
-  goToPage(path:any[]){
-    this.router.navigate(path);
-  }
+  
   shareToSocial(social:string,options:{url:string,text?:string,via?:string}){
     const text=options['text'] ? options['text']:'';
 const socialPoviders:{[key:string]:string}={

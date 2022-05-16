@@ -1,4 +1,9 @@
-         <div class="card-image-wrapper">
+    
+       <div class="cards-container">
+
+         <div class="card" *ngFor="let article of articles">
+            
+            <div class="card-image-wrapper">
                <img src="{{article.heroImage}}" alt="" class="card-image">
             </div>
             <div class="card-details">
@@ -19,4 +24,6 @@
                
                <div class="card-desc" [innerHTML]="article.content|textShortener">
                   </div>
-      </div>
+               </div>
+   </div>
+</div>

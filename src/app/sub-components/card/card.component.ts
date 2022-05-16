@@ -7,7 +7,7 @@ import { IArticles } from 'src/app/app.type';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit {
-  @Input() article!: IArticles;
+  @Input() articles!: IArticles[];
   constructor() { }
 
   ngOnInit(): void {

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ISingleArticle } from 'src/app/single-article/single-article.type';
 
 @Component({
   selector: 'app-author',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthorComponent implements OnInit {
 
+  @Input() singleArticle!: ISingleArticle;
   constructor() { }
 
   ngOnInit(): void {

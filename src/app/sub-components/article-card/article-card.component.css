@@ -6,6 +6,12 @@
     position: relative;
    
  }
+ .card-image-wrapper > a{
+    position:absolute;
+    inset:0;
+    
+    border-radius:inherit;
+ }
  .card-image{
     width: 100%;
     height: 100%;
@@ -74,6 +80,31 @@ font-size: calc(1.2rem + 1vw );
     text-decoration: none;
     color: var(--link-color);
  }
+ .author-name{
+   text-transform: capitalize;
+   font-weight: 500;
+   display: flex;
+   align-items: center;
+   gap:1rem;
+}
+.author-image-wrapper {
+   width: 3rem;
+   height: 3rem;
+   border-radius: 50%;
+   position: relative;
+   flex-shrink: 0;
+}
+
+.author-image {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   border-radius: inherit;
+   object-fit: cover;
+   margin: 0;
+   z-index:2;
+}
+
  .card-pubdate{
     text-transform: uppercase;
     font-weight: 500;

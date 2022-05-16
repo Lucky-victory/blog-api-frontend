@@ -6,7 +6,7 @@
    <article class="post-container" attr.data-post-id="{{singleArticle.id}}">
     <!-- <app-back-navigate></app-back-navigate> -->
         <div class="breadcrumb-wrapper flex ai-c gap-05r">
-       <a routerLink="/">home</a> <span class="material-symbols-rounded">double_arrow</span> <a routerLink="{{'/categories/'+singleArticle.category}}">{{singleArticle.category}}</a>  <span class="material-symbols-rounded">double_arrow</span>  <span>{{singleArticle.title}}</span>
+       <a routerLink="/">home</a> <span class="material-symbols-rounded">double_arrow</span> <a routerLink="{{'/categories/'+singleArticle.category}}">{{singleArticle.category}}</a>  <span class="material-symbols-rounded">double_arrow</span>  <span class="muted-text">{{singleArticle.title}}</span>
     </div>
     <!-- <div *ngIf="singleArticle !=null"> -->
        <div class="post-title">
@@ -15,12 +15,12 @@
          
          <div class="post-author ">
             <div class="author-image-wrapper">
-               <a routerLink="{{'/author/'+singleArticle.author.username}}" class="author-link"></a>
-               <img src="{{singleArticle.author.profileImage}}" alt="" class="author-image">
+               <a routerLink="{{'/author/'+singleArticle?.author?.username}}" class="author-link"></a>
+               <img src="{{singleArticle?.author?.profileImage}}" alt="" class="author-image">
             </div>
             <div class="flex flex-d-col">
                
-               <div class="author-name"><a routerLink="{{'/author/'+singleArticle.author.username}}">{{singleArticle.author.fullname}} </a>
+               <div class="author-name"><a routerLink="{{'/author/'+singleArticle?.author?.username}}">{{singleArticle?.author?.fullname}} </a>
          <!-- <div class="author-socials flex ai-c gap-05r">
             <a href="" class="post-share-btn"><i class="devicon-github-plain colored"></i></a>
             <a href="" class="post-share-btn"><i class="devicon-twitter-plain colored"></i></a>
@@ -44,7 +44,7 @@
                <i class="material-symbols-rounded">label</i>
                <a routerLink="{{'/categories/'+singleArticle.category}}">
                   
-                  {{singleArticle.category}}
+                  {{singleArticle?.category}}
                </a>
                
             </div>
@@ -52,7 +52,7 @@
                
                <div class="post-pub-views ">
                   <i class="material-symbols-rounded">comment</i>
-                  <span>{{singleArticle.commentsCount}}</span>
+                  <span>{{singleArticle?.commentsCount}}</span>
                </div>
                <div class="post-pub-views ">
                   <i class="material-symbols-rounded">monitoring</i>
@@ -88,31 +88,7 @@
      
 <!-- </div> -->
 </article>
- <div class="author-card">
-         <h2 class="author-card-title">about the author</h2>
-         <div class="flex ai-c gap-1r">
-            
-            <div class="author-image-wrapper">
-               <a routerLink="{{'/author/'+singleArticle.author.username}}" class="author-link"></a>
-               <img src="{{singleArticle.author.profileImage}}" alt="" class="author-image"></div>
-               <div class="flex flex-d-col  ">
-                  <div class="author-name flex aic-c">
-                     <a routerLink="{{'/author/'+singleArticle.author.username}}" class="">{{singleArticle.author.fullname}}</a>
-                  </div>
-               
-                  <div class="author-socials">
-                     <a href="" class="post-share-btn"><i class="devicon-github-plain colored"></i></a>
-                     <a href="" class="post-share-btn"><i class="devicon-twitter-plain colored"></i></a>
-             <a href="" class="post-share-btn"><i class="devicon-linkedin-plain colored"></i></a>
-             
-            </div>
-         </div>
-      </div>
-      
-      <div class="author-card-bio" [innerHtml]="singleArticle.author.bio">
-         
-      </div>
-   </div>
+<app-author [singleArticle]="singleArticle"></app-author>
 <!--<ng-http-loader  [minDuration]="300" [backdropBackgroundColor]="'#fff'" [backgroundColor]="'#67fcd6'" [opacity]="'1'"></ng-http-loader>
    <<router-outlet></router-outlet>
 -->
