@@ -15,8 +15,10 @@
          
          <div class="post-author ">
             <div class="author-image-wrapper">
-               <a routerLink="{{'/author/'+singleArticle?.author?.username}}" class="author-link"></a>
-               <img src="{{singleArticle?.author?.profileImage}}" alt="" class="author-image">
+               <a routerLink="{{'/author/'+singleArticle?.author?.username}}" >
+
+                  <img src="{{singleArticle?.author?.profileImage}}" alt="" class="author-image">
+               </a>
             </div>
             <div class="flex flex-d-col">
                

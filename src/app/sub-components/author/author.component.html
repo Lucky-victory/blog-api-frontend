@@ -3,8 +3,12 @@
          <div class="flex ai-c gap-1r">
             
             <div class="author-image-wrapper">
-               <a routerLink="{{'/author/'+singleArticle?.author?.username}}" class="author-link"></a>
-               <img src="{{singleArticle?.author?.profileImage}}" alt="" class="author-image"></div>
+               <a routerLink="{{'/author/'+singleArticle?.author?.username}}" >
+
+                   <img src="{{singleArticle?.author?.profileImage}}" alt="" class="author-image">
+                </a>
+            
+            </div>
                <div class="flex flex-d-col  ">
                   <div class="author-name flex aic-c">
                      <a routerLink="{{'/author/'+singleArticle?.author?.username}}" class="">{{singleArticle?.author?.fullname}}</a>

@@ -30,7 +30,8 @@
        </div>
        <span class='card-author'>
           By
-          <a class='card-author-name' [routerLink]='["/author/",article?.author?.username]'>{{article?.author?.fullname}}</a></span>
+          <a class='card-author-name' [routerLink]='["/author/",article?.author?.username]'>{{article?.author?.fullname}}</a>
+         </span>
           <span class='divider'></span>
        <time class='card-pubdate card-meta'>{{article.publishedAt|dateFormatter:'medium'}}</time>
        
