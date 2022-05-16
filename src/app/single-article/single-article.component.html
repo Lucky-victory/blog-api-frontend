@@ -8,8 +8,7 @@
         <div class="breadcrumb-wrapper flex ai-c gap-05r">
        <a routerLink="/">home</a> <span class="material-symbols-rounded">double_arrow</span> <a routerLink="{{'/categories/'+singleArticle.category}}">{{singleArticle.category}}</a>  <span class="material-symbols-rounded">double_arrow</span>  <span class="muted-text">{{singleArticle.title}}</span>
     </div>
-    <!-- <div *ngIf="singleArticle !=null"> -->
-       <div class="post-title">
+    <div class="post-title">
           <h1>{{singleArticle.title}}</h1>
          </div>
          
@@ -23,12 +22,6 @@
             <div class="flex flex-d-col">
                
                <div class="author-name"><a routerLink="{{'/author/'+singleArticle?.author?.username}}">{{singleArticle?.author?.fullname}} </a>
-         <!-- <div class="author-socials flex ai-c gap-05r">
-            <a href="" class="post-share-btn"><i class="devicon-github-plain colored"></i></a>
-            <a href="" class="post-share-btn"><i class="devicon-twitter-plain colored"></i></a>
-            <a href="" class="post-share-btn"><i class="devicon-linkedin-plain colored"></i></a>
-             
-         </div> -->
          </div>
          
          <div class="post-pub-info">
@@ -80,7 +73,7 @@
       <div class="post-hero-image-wrapper">
          <img src="{{singleArticle.heroImage}}" alt="" class="post-hero-image" />
       </div>
-      <div class="post-content" [innerHTML]="singleArticle.content">
+      <div class="post-content" [innerHTML]="singleArticle?.content">
          
          
         
@@ -88,9 +81,9 @@
       </div>
       
      
-<!-- </div> -->
+
 </article>
 <app-author [singleArticle]="singleArticle"></app-author>
-<!--<ng-http-loader  [minDuration]="300" [backdropBackgroundColor]="'#fff'" [backgroundColor]="'#67fcd6'" [opacity]="'1'"></ng-http-loader>
-   <<router-outlet></router-outlet>
--->
+<ng-http-loader  [minDuration]="300" [backdropBackgroundColor]="'#fff'" [backgroundColor]="'#67fcd6'" [opacity]="'1'"></ng-http-loader>
+
+   <router-outlet></router-outlet>
