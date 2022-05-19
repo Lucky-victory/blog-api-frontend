@@ -26,7 +26,7 @@ import { TextShortenerPipe } from '../pipes/text-shortener.pipe';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, SingleArticleComponent, CategoryPageComponent, NotFoundComponent, AuthorPageComponent, TagPageComponent, LoaderComponent, AuthorDirective, BackNavigateComponent, AuthorComponent, ArticleCardComponent, CardComponent, DateFormatterPipe, TextShortenerPipe],
-  imports: [BrowserModule,ClipboardModule, AppRoutingModule, HttpClientModule,NgHttpLoaderModule.forRoot()],
+  imports: [BrowserModule.withServerTransition({ appId: 'serverApp' }),ClipboardModule, AppRoutingModule, HttpClientModule,NgHttpLoaderModule.forRoot()],
   providers: [AppService],
   bootstrap: [AppComponent],
   exports:[]

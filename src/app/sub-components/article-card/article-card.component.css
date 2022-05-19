@@ -9,7 +9,6 @@
  .card-image-wrapper > a{
     position:absolute;
     inset:0;
-    
     border-radius:inherit;
  }
  .card-image{
@@ -55,7 +54,7 @@
  .card-title{
     text-transform: capitalize;
     margin: 1rem 0;
-font-size: calc(1.2rem + 1vw );
+font-size: calc(1rem + 1vw );
  }
  .card-desc{
     margin:0.5rem 0 ;
