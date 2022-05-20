@@ -6,7 +6,7 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Spinkit } from 'ng-http-loader';
 import { AppService } from '../app.service';
 import { APP_BASE_URL} from '../constants';
-import { TextShortenerPipe } from '../../pipes/text-shortener.pipe';
+
 import { ISingleArticle } from './single-article.type';
 
 @Component({

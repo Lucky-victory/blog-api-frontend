@@ -1,89 +1,129 @@
 <style>
-   /* @import url('https://fonts.googleapis.com/icon?family=Material+Icons+Outlined'); */
+  /* @import url('https://fonts.googleapis.com/icon?family=Material+Icons+Outlined'); */
 </style>
 
-
-   <article class="post-container" attr.data-post-id="{{singleArticle.id}}">
+<ng-container *ngIf="singleArticle; else loading">
+  <article class="post-container" attr.data-post-id="{{ singleArticle.id }}">
     <!-- <app-back-navigate></app-back-navigate> -->
-        <div class="breadcrumb-wrapper flex ai-c gap-05r">
-       <a routerLink="/">home</a> <span class="material-symbols-rounded">double_arrow</span> <a routerLink="{{'/categories/'+singleArticle.category}}">{{singleArticle.category}}</a>  <span class="material-symbols-rounded">double_arrow</span>  <span class="muted-text">{{singleArticle.title}}</span>
+    <div class="breadcrumb-wrapper flex ai-c gap-05r">
+      <a routerLink="/">home</a>
+      <span class="material-symbols-rounded">double_arrow</span>
+      <a routerLink="{{ '/categories/' + singleArticle.category }}">{{
+        singleArticle.category
+      }}</a>
+      <span class="material-symbols-rounded">double_arrow</span>
+      <span class="muted-text">{{ singleArticle.title }}</span>
     </div>
     <div class="post-title">
-          <h1>{{singleArticle.title}}</h1>
-         </div>
-         
-         <div class="post-author ">
-            <div class="author-image-wrapper">
-               <a routerLink="{{'/author/'+singleArticle?.author?.username}}" >
+      <h1>{{ singleArticle.title }}</h1>
+    </div>
 
-                  <img src="{{singleArticle?.author?.profileImage}}" alt="" class="author-image">
-               </a>
-            </div>
-            <div class="flex flex-d-col">
-               
-               <div class="author-name"><a routerLink="{{'/author/'+singleArticle?.author?.username}}">{{singleArticle?.author?.fullname}} </a>
-         </div>
-         
-         <div class="post-pub-info">
-   
-            <time class="post-pub-date" attr.datetime="{{singleArticle.publishedAt}}" >{{singleArticle.publishedAt| dateFormatter:'long'}}</time>
-            <span class="post-pub-read-time">{{singleArticle.readTime}} min read</span>
-         
+    <div class="post-author">
+      <div class="author-image-wrapper">
+        <a routerLink="{{ '/author/' + singleArticle?.author?.username }}">
+          <img
+            src="{{ singleArticle?.author?.profileImage }}"
+            alt=""
+            class="author-image"
+          />
+        </a>
       </div>
-         </div>
-      </div>
-      
+      <div class="flex flex-d-col">
+        <div class="author-name">
+          <a routerLink="{{ '/author/' + singleArticle?.author?.username }}"
+            >{{ singleArticle?.author?.fullname }}
+          </a>
+        </div>
 
-            <div class="flex ai-c jc-sb mb-1r">
-               <div class="post-category">
-               <i class="material-symbols-rounded">label</i>
-               <a routerLink="{{'/categories/'+singleArticle.category}}">
-                  
-                  {{singleArticle?.category}}
-               </a>
-               
-            </div>
-            <div class="flex ai-c gap-1r">
-               
-               <div class="post-pub-views ">
-                  <i class="material-symbols-rounded">comment</i>
-                  <span>{{singleArticle?.commentsCount}}</span>
-               </div>
-               <div class="post-pub-views ">
-                  <i class="material-symbols-rounded">monitoring</i>
-                  <span>{{singleArticle.views}}</span>
-               </div>
-            </div>
-         </div>
-         <div class="flex jc-sb ai-c flexw-w">
-            <div class="post-tags-wrapper"  >
-               <a routerLink="{{'/tags/'+tag}}" *ngFor="let tag of singleArticle?.tags" class="post-tag">#{{tag}}</a>
-               
-            </div>
-            <div class="post-share-btns-wrapper">
-               <button class="post-share-btn material-symbols-rounded share-icon">share</button>
-               <div class="post-share-btns-inner">
-                  <button class="post-share-btn" (click)="shareToSocial('facebook',{'url':singleArticle.slug,'text':singleArticle.title})" title="share to facebook"><i class="devicon-facebook-plain"></i></button>
-                  <button (click)="shareToSocial('twitter',{'url':singleArticle.slug,'text':singleArticle.title})"  class="post-share-btn" title="share to twitter"><i class="devicon-twitter-plain"></i></button>
-                  <button  class="post-share-btn material-symbols-rounded" title="{{copyLinkTitle}}" (click)="copyLink(baseUrl+'/article/'+singleArticle.slug)">link</button>
-               </div>
-            </div>
-         
+        <div class="post-pub-info">
+          <time
+            class="post-pub-date"
+            attr.datetime="{{ singleArticle.publishedAt }}"
+            >{{ singleArticle.publishedAt | dateFormatter: "long" }}</time
+          >
+          <span class="post-pub-read-time"
+            >{{ singleArticle.readTime }} min read</span
+          >
+        </div>
       </div>
-      <div class="post-hero-image-wrapper">
-         <img src="{{singleArticle.heroImage}}" alt="" class="post-hero-image" />
-      </div>
-      <div class="post-content" [innerHTML]="singleArticle?.content">
-         
-         
-        
-       
-      </div>
-      
-     
+    </div>
 
-</article>
-<app-author [singleArticle]="singleArticle"></app-author>
-<ng-http-loader  [minDuration]="300" [backdropBackgroundColor]="'#fff'" [backgroundColor]="'#67fcd6'" [opacity]="'1'"></ng-http-loader>
+    <div class="flex ai-c jc-sb mb-1r">
+      <div class="post-category">
+        <i class="material-symbols-rounded">label</i>
+        <a routerLink="{{ '/categories/' + singleArticle.category }}">
+          {{ singleArticle?.category }}
+        </a>
+      </div>
+      <div class="flex ai-c gap-1r">
+        <div class="post-pub-views">
+          <i class="material-symbols-rounded">comment</i>
+          <span>{{ singleArticle?.commentsCount }}</span>
+        </div>
+        <div class="post-pub-views">
+          <i class="material-symbols-rounded">monitoring</i>
+          <span>{{ singleArticle.views }}</span>
+        </div>
+      </div>
+    </div>
+    <div class="flex jc-sb ai-c flexw-w">
+      <div class="post-tags-wrapper">
+        <a
+          routerLink="{{ '/tags/' + tag }}"
+          *ngFor="let tag of singleArticle?.tags"
+          class="post-tag"
+          >#{{ tag }}</a
+        >
+      </div>
+      <div class="post-share-btns-wrapper">
+        <button class="post-share-btn material-symbols-rounded share-icon">
+          share
+        </button>
+        <div class="post-share-btns-inner">
+          <button
+            class="post-share-btn"
+            (click)="
+              shareToSocial('facebook', {
+                url: singleArticle.slug,
+                text: singleArticle.title
+              })
+            "
+            title="share to facebook"
+          >
+            <i class="devicon-facebook-plain"></i>
+          </button>
+          <button
+            (click)="
+              shareToSocial('twitter', {
+                url: singleArticle.slug,
+                text: singleArticle.title
+              })
+            "
+            class="post-share-btn"
+            title="share to twitter"
+          >
+            <i class="devicon-twitter-plain"></i>
+          </button>
+          <button
+            class="post-share-btn material-symbols-rounded"
+            title="{{ copyLinkTitle }}"
+            (click)="copyLink(baseUrl + '/article/' + singleArticle.slug)"
+          >
+            link
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="post-hero-image-wrapper">
+      <img src="{{ singleArticle.heroImage }}" alt="" class="post-hero-image" />
+    </div>
+    <div class="post-content" [innerHTML]="singleArticle?.content"></div>
+  </article>
+  <app-author [singleArticle]="singleArticle"></app-author>
+  <!-- <ng-http-loader  [minDuration]="300" [backdropBackgroundColor]="'#fff'" [backgroundColor]="'#67fcd6'" [opacity]="'1'"></ng-http-loader> -->
 
-   <router-outlet></router-outlet>
+  <!-- <router-outlet></router-outlet> -->
+</ng-container>
+<ng-template #loading>
+  <h1>loding njfjgkkgjfjdhdhsdj</h1>
+</ng-template>
