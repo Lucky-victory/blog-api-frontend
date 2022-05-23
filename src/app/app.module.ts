@@ -22,10 +22,11 @@ import { ArticleCardComponent } from './sub-components/article-card/article-card
 import { CardComponent } from './sub-components/card/card.component';
 import { DateFormatterPipe } from '../pipes/date-formatter.pipe';
 import { TextShortenerPipe } from '../pipes/text-shortener.pipe';
+import { AuthorImageComponent } from './sub-components/author-image/author-image.component';
 
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, SingleArticleComponent, CategoryPageComponent, NotFoundComponent, AuthorPageComponent, TagPageComponent, LoaderComponent, AuthorDirective, BackNavigateComponent, AuthorComponent, ArticleCardComponent, CardComponent, DateFormatterPipe, TextShortenerPipe],
+  declarations: [AppComponent, HomeComponent, SingleArticleComponent, CategoryPageComponent, NotFoundComponent, AuthorPageComponent, TagPageComponent, LoaderComponent, AuthorDirective, BackNavigateComponent, AuthorComponent, ArticleCardComponent, CardComponent, DateFormatterPipe, TextShortenerPipe, AuthorImageComponent],
   imports: [BrowserModule.withServerTransition({ appId: 'serverApp' }),ClipboardModule, AppRoutingModule, HttpClientModule,NgHttpLoaderModule.forRoot()],
   providers: [AppService],
   bootstrap: [AppComponent],

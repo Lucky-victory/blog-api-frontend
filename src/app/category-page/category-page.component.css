@@ -1,57 +1,48 @@
-
-
-.container{
-   padding: 2rem 0;
-   margin: 0 auto;
-   max-width: 1000px;
-   background: #fff;
-   box-shadow: 0 4px 8px #0002
+.container {
+  padding-bottom: 2rem;
+  margin: 0 auto;
+  max-width: 1000px;
+  background: #fff;
+  box-shadow: 0 4px 8px #0002;
 }
-.header{
-   height: 250px;
-   background:var(--alternative-color);
-   border-radius:0.5rem 0.5rem 0 0 ;
+.header {
+  height: 250px;
   position: relative;
   margin-bottom: 2rem;
-  
 }
-.header-bg{
-   height: 100%;
-   border-radius:0.5rem 0.5rem 0 0 ;
-   background-color:#0006;
-   background-size: cover;
-   background-position: center;
-   background-repeat: no-repeat;
-   background-blend-mode: soft-light;
-   width: 100%;
-   position: absolute;
-padding: 1rem;
-display: flex;
-justify-content: center;
-align-items: flex-end;
+.header-bg {
+  height: 100%;
+  border-radius: 0 0 0.625rem 0.625rem;
+  background-color: #0006;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: soft-light;
+  width: 100%;
+  position: absolute;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }
-.title{
-   color: var(--alternative-color);
-   text-transform: uppercase;
-   z-index: 2;
-   background: #fff;
-   padding: 0.75rem 1rem;
-   border-radius:3rem;
-   text-align: center;
-   box-shadow:inset 0 0 0 3px var(--alternative-color), 0 3px 6px #0002;
-   border: 3px solid #f1f1f1;
-   margin: 0 auto;
-   margin-bottom: -3rem;
-
-
+.title {
+  color: var(--alternative-color);
+  text-transform: uppercase;
+  z-index: 2;
+  background: #fff;
+  padding: 0.75rem 1rem;
+  border-radius: 3rem;
+  text-align: center;
+  box-shadow: inset 0 0 0 3px var(--alternative-color), 0 3px 6px #0002;
+  border: 3px solid #f1f1f1;
+  margin: 0 auto;
+  margin-bottom: -3rem;
 }
-.title-text{
-   color:var(--primary-color)
+.title-text {
+  color: var(--primary-color);
 }
-@media all and (max-width:600px) {
-   .title{
-      
-      font-size: 24px;
-   }
-   
+@media all and (max-width: 600px) {
+  .title {
+    font-size: 24px;
+  }
 }

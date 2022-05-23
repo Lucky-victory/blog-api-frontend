@@ -1,6 +1,5 @@
-
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes, } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { AuthorPageComponent } from './author-page/author-page.component';
 import { CategoryPageComponent } from './category-page/category-page.component';
 import { HomeComponent } from './home/home.component';
@@ -16,28 +15,32 @@ const routes: Routes = [
   {
     path: 'article/:slug',
     component: SingleArticleComponent,
-  },  {
+  },
+  {
     path: 'tags/:tag',
     component: TagPageComponent,
   },
 
   {
-    path:'categories/:category',
-    component:CategoryPageComponent
+    path: 'categories/:category',
+    component: CategoryPageComponent,
   },
   {
-    path:'author/:username',
-    component:AuthorPageComponent
-  },{
-    path:'**',
-    component:NotFoundComponent
-  }
+    path: 'author/:username',
+    component: AuthorPageComponent,
+  },
+  {
+    path: '**',
+    component: NotFoundComponent,
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {
-    initialNavigation: 'enabledBlocking'
-})],
+  imports: [
+    RouterModule.forRoot(routes, {
+      initialNavigation: 'enabledBlocking',
+    }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

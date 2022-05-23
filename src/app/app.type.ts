@@ -4,21 +4,24 @@ export interface IArticles {
   intro: string;
   authorId: string;
   views: number;
-  comments: object[] | null;
+  commentsCount: number;
   author: IArticleAuthor;
   heroImage: string;
-  category: string | null;
+  category: StringOrNull;
   publishedAt: Date;
-  slug:string;
-  readTime:number
+  modifiedAt: Date;
+  slug: string;
+  readTime: number;
 }
 export interface IArticleAuthor {
   bio: StringOrNull;
   id: string;
   twitter: StringOrNull;
   profileImage: string;
-  username:string;
-  fullname:string;
+  username: string;
+  fullname: string;
+  github: StringOrNull;
+  linkedIn: StringOrNull;
 }
 export interface IArticlesResponse {
   message: string;

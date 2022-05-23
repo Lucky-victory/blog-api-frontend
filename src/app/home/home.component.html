@@ -1,65 +1,78 @@
 <style>
-  @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+  /* @import url("https://fonts.googleapis.com/icon?family=Material+Icons"); */
 </style>
 <header class="banner">
-   <div class="banner-bg" style="background-image:url(https://images.pexels.com/photos/2350592/pexels-photo-2350592.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940) ;">
-
-   </div>
+  <div
+    class="banner-bg"
+    style="
+      background-image: url(https://images.pexels.com/photos/2350592/pexels-photo-2350592.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+    "
+  ></div>
 </header>
 <main class="container">
-   <div class="categories-container">
-      <ul class="category-list">
-<li class="category-item" >
-   <a  class="category-item-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" routerLink="" >
-      <span class="flex ai-c gap-05r">
+  <div class="categories-container">
+    <ul class="category-list">
+      <li class="category-item">
+        <a
+          class="category-item-link"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          routerLink=""
+        >
+          <span class="flex ai-c gap-05r">
+            <i class="material-symbols-rounded">newspaper</i> feed
+          </span>
+        </a>
+      </li>
 
-         <i class="material-symbols-rounded">newspaper</i> feed
-         
-      </span>
-      </a>
-</li>
-
-<li class="category-item" >
-   <a  class="category-item-link " routerLinkActive="active" [routerLinkActiveOptions]="{exact:false}" routerLink="" [queryParams]="{sort:'latest'}" >
-      <span class="flex ai-c gap-05r">
-
-         <i class="material-symbols-rounded">personalized_recommendations</i>
-         latest
-      </span>
-   
-   </a>
-</li>
-<li class="category-item" >
-   <a  class="category-item-link " routerLinkActive="active" [routerLinkActiveOptions]="{exact:false}" routerLink="" [queryParams]="{sort:'short'}" >
-      <span class="flex ai-c gap-05r">
-
-         <i class="material-symbols-rounded">short_text</i>
-      easy read
-      </span>
-   
-   </a>
-</li>
-<li class="category-item" >
-   <a  class="category-item-link " routerLinkActive="active" [routerLinkActiveOptions]="{exact:false}" routerLink="" [queryParams]="{sort:'long'}" >
-      <span class="flex ai-c gap-05r">
-
-         <i class="material-symbols-rounded">receipt_long</i>
-      long read
-      </span>
-   
-   </a>
-</li>
-
-      </ul>
-   </div>
-  <div class="cards-container" >
-     <article class="card" *ngFor="let article of allArticles">
-
-        <app-article-card  [article]="article">
-           
-      </app-article-card>
-   </article>
-         
+      <li class="category-item">
+        <a
+          class="category-item-link"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: false }"
+          routerLink=""
+          [queryParams]="{ sort: 'latest' }"
+        >
+          <span class="flex ai-c gap-05r">
+            <i class="material-symbols-rounded">personalized_recommendations</i>
+            latest
+          </span>
+        </a>
+      </li>
+      <li class="category-item">
+        <a
+          class="category-item-link"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: false }"
+          routerLink=""
+          [queryParams]="{ sort: 'short' }"
+        >
+          <span class="flex ai-c gap-05r">
+            <i class="material-symbols-rounded">short_text</i>
+            easy read
+          </span>
+        </a>
+      </li>
+      <li class="category-item">
+        <a
+          class="category-item-link"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: false }"
+          routerLink=""
+          [queryParams]="{ sort: 'long' }"
+        >
+          <span class="flex ai-c gap-05r">
+            <i class="material-symbols-rounded">receipt_long</i>
+            long read
+          </span>
+        </a>
+      </li>
+    </ul>
   </div>
-  </main>
+  <div class="cards-container">
+    <article class="card" *ngFor="let article of allArticles">
+      <app-article-card [article]="article"> </app-article-card>
+    </article>
+  </div>
+</main>
 <!-- <router-outlet></router-outlet> -->

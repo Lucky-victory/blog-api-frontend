@@ -1,29 +1,29 @@
- <div class="author-card">
-         <h2 class="author-card-title">about the author</h2>
-         <div class="flex ai-c gap-1r">
-            
-            <div class="author-image-wrapper">
-               <a routerLink="{{'/author/'+singleArticle?.author?.username}}" >
+<div class="author-card">
+  <h2 class="author-card-title">about the author</h2>
+  <div class="flex ai-c gap-1r">
+    <app-author-image [author]="singleArticle.author"></app-author-image>
+    <div class="flex flex-d-col">
+      <div class="author-name flex aic-c">
+        <a
+          routerLink="{{ '/author/' + singleArticle?.author?.username }}"
+          class=""
+          >{{ singleArticle?.author?.fullname }}</a
+        >
+      </div>
 
-                   <img src="{{singleArticle?.author?.profileImage}}" alt="" class="author-image">
-                </a>
-            
-            </div>
-               <div class="flex flex-d-col  ">
-                  <div class="author-name flex aic-c">
-                     <a routerLink="{{'/author/'+singleArticle?.author?.username}}" class="">{{singleArticle?.author?.fullname}}</a>
-                  </div>
-               
-                  <div class="author-socials">
-                     <a href="" class="post-share-btn"><i class="devicon-github-plain colored"></i></a>
-                     <a href="" class="post-share-btn"><i class="devicon-twitter-plain colored"></i></a>
-             <a href="" class="post-share-btn"><i class="devicon-linkedin-plain colored"></i></a>
-             
-            </div>
-         </div>
+      <div class="author-socials">
+        <a href="" class="post-share-btn"
+          ><i class="devicon-github-plain colored"></i
+        ></a>
+        <a href="" class="post-share-btn"
+          ><i class="devicon-twitter-plain colored"></i
+        ></a>
+        <a href="" class="post-share-btn"
+          ><i class="devicon-linkedin-plain colored"></i
+        ></a>
       </div>
-      
-      <div class="author-card-bio" [innerHtml]="singleArticle?.author?.bio">
-         
-      </div>
-   </div>
+    </div>
+  </div>
+
+  <div class="author-card-bio" [innerHtml]="singleArticle?.author?.bio"></div>
+</div>

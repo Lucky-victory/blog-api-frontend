@@ -19,15 +19,7 @@
     </div>
 
     <div class="post-author">
-      <div class="author-image-wrapper">
-        <a routerLink="{{ '/author/' + singleArticle?.author?.username }}">
-          <img
-            src="{{ singleArticle?.author?.profileImage }}"
-            alt=""
-            class="author-image"
-          />
-        </a>
-      </div>
+      <app-author-image [author]="singleArticle.author"></app-author-image>
       <div class="flex flex-d-col">
         <div class="author-name">
           <a routerLink="{{ '/author/' + singleArticle?.author?.username }}"
@@ -38,11 +30,11 @@
         <div class="post-pub-info">
           <time
             class="post-pub-date"
-            attr.datetime="{{ singleArticle.publishedAt }}"
+            attr.datetime="{{ singleArticle?.publishedAt }}"
             >{{ singleArticle.publishedAt | dateFormatter: "long" }}</time
           >
           <span class="post-pub-read-time"
-            >{{ singleArticle.readTime }} min read</span
+            >{{ singleArticle?.readTime }} min read</span
           >
         </div>
       </div>
@@ -51,7 +43,7 @@
     <div class="flex ai-c jc-sb mb-1r">
       <div class="post-category">
         <i class="material-symbols-rounded">label</i>
-        <a routerLink="{{ '/categories/' + singleArticle.category }}">
+        <a routerLink="{{ '/categories/' + singleArticle?.category }}">
           {{ singleArticle?.category }}
         </a>
       </div>
@@ -62,7 +54,7 @@
         </div>
         <div class="post-pub-views">
           <i class="material-symbols-rounded">monitoring</i>
-          <span>{{ singleArticle.views }}</span>
+          <span>{{ singleArticle?.views }}</span>
         </div>
       </div>
     </div>
@@ -115,7 +107,11 @@
       </div>
     </div>
     <div class="post-hero-image-wrapper">
-      <img src="{{ singleArticle.heroImage }}" alt="" class="post-hero-image" />
+      <img
+        src="{{ singleArticle?.heroImage }}"
+        alt=""
+        class="post-hero-image"
+      />
     </div>
     <div class="post-content" [innerHTML]="singleArticle?.content"></div>
   </article>
