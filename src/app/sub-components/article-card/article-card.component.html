@@ -1,59 +1,63 @@
-<div class="card-image-wrapper">
-  <a [routerLink]="['article/', article.slug]" class="primary">
-    <img src="{{ article.heroImage }}" alt="" class="card-image" />
-  </a>
-</div>
-<div class="card-inner">
-  <div class="card-info">
-    <div class="card-info-inner">
-      <span class="card-category" *ngIf="article.category">{{
-        article.category
-      }}</span>
-      <div class="flex gap-1r ai-c">
-        <span class="icon-wrapper card-comment card-meta"
-          ><i class="material-symbols-rounded icon">menu_book</i
-          >{{ article.readTime }}</span
-        >
-        <span class="icon-wrapper card-comment card-meta"
-          ><i class="material-symbols-rounded icon">comment</i
-          >{{ article?.commentsCount }}</span
-        >
-        <span class="icon-wrapper card-views card-meta"
-          ><i class="material-symbols-rounded icon">monitoring</i>
-          {{ article.views }}</span
-        >
+<div class="cards-container">
+  <article class="card" *ngFor="let article of articles">
+    <div class="card-image-wrapper">
+      <a [routerLink]="['article/', article.slug]" class="primary">
+        <img src="{{ article.heroImage }}" alt="" class="card-image" />
+      </a>
+    </div>
+    <div class="card-inner">
+      <div class="card-info">
+        <div class="card-info-inner">
+          <span class="card-category" *ngIf="article.category">{{
+            article.category
+          }}</span>
+          <div class="flex gap-1r ai-c">
+            <span class="icon-wrapper card-comment card-meta"
+              ><i class="material-symbols-rounded icon">menu_book</i
+              >{{ article.readTime }}</span
+            >
+            <span class="icon-wrapper card-comment card-meta"
+              ><i class="material-symbols-rounded icon">comment</i
+              >{{ article?.commentsCount }}</span
+            >
+            <span class="icon-wrapper card-views card-meta"
+              ><i class="material-symbols-rounded icon">monitoring</i>
+              {{ article.views }}</span
+            >
+          </div>
+        </div>
+        <h2 class="card-title">
+          <a [routerLink]="['article/', article.slug]" class="primary">
+            {{ article.title }}
+          </a>
+        </h2>
+
+        <div
+          class="card-desc"
+          [innerHtml]="
+            article.intro
+              ? (article.intro | textShortener)
+              : (article.content | textShortener)
+          "
+        ></div>
+      </div>
+      <div class="card-details">
+        <div class="author-image-wrapper">
+          <img class="author-image" src="{{ article?.author?.profileImage }}" />
+        </div>
+        <span class="card-author">
+          By
+          <a
+            class="card-author-name"
+            [routerLink]="['/author/', article?.author?.username]"
+            >{{ article?.author?.fullname }}</a
+          >
+        </span>
+        <span class="divider"></span>
+        <time class="card-pubdate card-meta">{{
+          article.publishedAt | dateFormatter: "medium"
+        }}</time>
       </div>
     </div>
-    <h2 class="card-title">
-      <a [routerLink]="['article/', article.slug]" class="primary">
-        {{ article.title }}
-      </a>
-    </h2>
-
-    <div
-      class="card-desc"
-      [innerHtml]="
-        article.intro
-          ? (article.intro | textShortener)
-          : (article.content | textShortener)
-      "
-    ></div>
-  </div>
-  <div class="card-details">
-    <div class="author-image-wrapper">
-      <img class="author-image" src="{{ article?.author?.profileImage }}" />
-    </div>
-    <span class="card-author">
-      By
-      <a
-        class="card-author-name"
-        [routerLink]="['/author/', article?.author?.username]"
-        >{{ article?.author?.fullname }}</a
-      >
-    </span>
-    <span class="divider"></span>
-    <time class="card-pubdate card-meta">{{
-      article.publishedAt | dateFormatter: "medium"
-    }}</time>
-  </div>
+  </article>
 </div>
