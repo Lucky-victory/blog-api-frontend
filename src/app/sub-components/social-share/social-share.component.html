@@ -2,14 +2,14 @@
   <button
     class="social-share-btn"
     *ngFor="let social of socials"
-    attr.data-social="{{ social['name'] }}"
-    attr.data-url="{{ social['url'] }}"
-    attr.data-text="{{ social['text'] }}"
+    attr.data-social="{{ social.name }}"
+    attr.data-url="{{ social.url }}"
+    attr.data-text="{{ social.text }}"
     (click)="shareToSocial($event)"
   >
     <i
-      class="social-share-icon devicon-{{ social['name'] }}-plain {{
-        social['name']
+      class="social-share-icon devicon-{{ social.name }}-plain {{
+        social.name
       }}"
     ></i>
   </button>

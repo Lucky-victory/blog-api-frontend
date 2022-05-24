@@ -3,7 +3,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute,  Router } from '@angular/router';
-import { Spinkit } from 'ng-http-loader';
 import { AppService } from '../app.service';
 import { APP_BASE_URL} from '../constants';
 
@@ -19,7 +18,6 @@ export class SingleArticleComponent implements OnInit {
   
   singleArticle!: ISingleArticle;
 baseUrl:string=APP_BASE_URL;
-spinnerStyle=Spinkit;
 copyLinkTitle:string='copy link';
   constructor(private activeRoute:ActivatedRoute,private router:Router, private service:AppService,private pageTitle:Title, private pageMeta:Meta) { 
 
@@ -52,13 +50,7 @@ const socialPoviders:{[key:string]:string}={
 }
 window.open(`${socialPoviders[social]}`,'','width=700,height=800,top=0,left=400,scrollbar=no')
   }
-  copyLink(link:string){
-    this.service.copyToClipboard(link);
-    this.copyLinkTitle='copied';
-    setTimeout(() => {
-      this.copyLinkTitle='copy link'
-    }, 1000);
-  }
+ 
  
   setMetaTags(singleArticle:ISingleArticle){
     this.pageMeta.addTags([{
