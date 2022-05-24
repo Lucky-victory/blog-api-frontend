@@ -23,6 +23,8 @@
       <div class="header-author-info"></div>
     </div>
   </div>
-  <span>{{ articles?.length }} articles</span>
+  <div class="title-wrapper">
+    <span class="title">{{ articles?.length }} articles</span>
+  </div>
   <app-card [articles]="articles"></app-card>
 </div>

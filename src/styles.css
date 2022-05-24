@@ -3,11 +3,17 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   font-family: inherit;
+  padding: 0;
 }
 html {
+  --c1: #02055a;
+  --c2: #253da1;
+  --c3: #02198b;
+  --c4: #b0dbf1;
+  --c5: #000137;
   --secondary-color: #022408;
-  --link-color: #047f63;
-  --link-color-light: #047f6311;
+  --link-color: var(--c2);
+  --link-color-light: #7d2ae811;
   --primary-color: #b8293d;
   --primary-color-light: #b8293d11;
   --alternative-color: #596e5c;
@@ -178,7 +184,7 @@ ul ul ul li::before {
 }
 .icon {
   font-size: 22px;
-  color: var(--alternative-color);
+  color: inherit;
 }
 .icon-wrapper {
   display: flex;
@@ -188,7 +194,7 @@ ul ul ul li::before {
 .divider {
   display: inline-block;
   width: 2px;
-  height: 1.5rem;
+  height: 1.45rem;
   background: #ccc;
   border-radius: 1rem;
 }

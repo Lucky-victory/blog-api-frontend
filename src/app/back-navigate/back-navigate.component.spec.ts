@@ -8,11 +8,9 @@ describe('BackNavigateComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BackNavigateComponent ]
-    })
-    .compileComponents();
+      declarations: [BackNavigateComponent],
+    }).compileComponents();
   });
-
   beforeEach(() => {
     fixture = TestBed.createComponent(BackNavigateComponent);
     component = fixture.componentInstance;

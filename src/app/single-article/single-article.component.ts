@@ -1,8 +1,8 @@
 
-import { Location } from '@angular/common';
+
 import { Component, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
-import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { ActivatedRoute,  Router } from '@angular/router';
 import { Spinkit } from 'ng-http-loader';
 import { AppService } from '../app.service';
 import { APP_BASE_URL} from '../constants';

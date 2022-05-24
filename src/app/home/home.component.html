@@ -69,10 +69,9 @@
       </li>
     </ul>
   </div>
-  <div class="cards-container">
-    <article class="card" *ngFor="let article of allArticles">
-      <app-article-card [article]="article"> </app-article-card>
-    </article>
-  </div>
+  
+      <app-article-card [articles]="allArticles"> </app-article-card>
+    
+  
 </main>
 <!-- <router-outlet></router-outlet> -->

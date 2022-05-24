@@ -1,6 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { BrowserModule} from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,13 +23,37 @@ import { CardComponent } from './sub-components/card/card.component';
 import { DateFormatterPipe } from '../pipes/date-formatter.pipe';
 import { TextShortenerPipe } from '../pipes/text-shortener.pipe';
 import { AuthorImageComponent } from './sub-components/author-image/author-image.component';
-
+import { SocialShareComponent } from './sub-components/social-share/social-share.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, SingleArticleComponent, CategoryPageComponent, NotFoundComponent, AuthorPageComponent, TagPageComponent, LoaderComponent, AuthorDirective, BackNavigateComponent, AuthorComponent, ArticleCardComponent, CardComponent, DateFormatterPipe, TextShortenerPipe, AuthorImageComponent],
-  imports: [BrowserModule.withServerTransition({ appId: 'serverApp' }),ClipboardModule, AppRoutingModule, HttpClientModule,NgHttpLoaderModule.forRoot()],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    SingleArticleComponent,
+    CategoryPageComponent,
+    NotFoundComponent,
+    AuthorPageComponent,
+    TagPageComponent,
+    LoaderComponent,
+    AuthorDirective,
+    BackNavigateComponent,
+    AuthorComponent,
+    ArticleCardComponent,
+    CardComponent,
+    DateFormatterPipe,
+    TextShortenerPipe,
+    AuthorImageComponent,
+    SocialShareComponent,
+  ],
+  imports: [
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    ClipboardModule,
+    AppRoutingModule,
+    HttpClientModule,
+    NgHttpLoaderModule.forRoot(),
+  ],
   providers: [AppService],
   bootstrap: [AppComponent],
-  exports:[]
+  exports: [],
 })
 export class AppModule {}
