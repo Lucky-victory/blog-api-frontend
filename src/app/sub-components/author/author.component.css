@@ -22,7 +22,7 @@
 
 
 .author-card-title{
-   --title-bg:#ee5e0a;
+   --title-bg:var(--primary-color);
    font-weight: 500;
    text-transform: uppercase;
    color: #fff;

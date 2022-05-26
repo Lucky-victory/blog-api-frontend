@@ -10,6 +10,7 @@ import { SocialShareService } from './social-share.service';
 })
 export class SocialShareComponent {
   @Input() socials: IShare[] = [];
+  @Input() linkToCopy: string = '';
   copyLinkTitle: string = 'copy link';
   constructor(private socialShareService: SocialShareService) {}
 
@@ -19,8 +20,9 @@ export class SocialShareComponent {
     let { text } = target.dataset;
     text = text ?? '';
     const socialPoviders: { [key: string]: string } = {
-      twitter: `https://twitter.com/share?url=${APP_BASE_URL}/article/${url}&text=${text}`,
+      twitter: `https://twitter.com/share?url=${APP_BASE_URL}/${url}&text=${text}`,
       facebook: `http://www.facebook.com/sharer/sharer.php?u=${APP_BASE_URL}/${url}`,
+      linkedin:`https://www.linkedin.com/sharing/share-offsite/?url=${APP_BASE_URL}/${url}`
     };
     if (socialPoviders[social!]) {
       window.open(
@@ -31,7 +33,7 @@ export class SocialShareComponent {
     }
   }
   copyLink(link: string) {
-    this.socialShareService.copyToClipboard(link);
+    this.socialShareService.copyToClipboard(`${APP_BASE_URL}/${link}`);
     this.copyLinkTitle = 'copied';
     setTimeout(() => {
       this.copyLinkTitle = 'copy link';

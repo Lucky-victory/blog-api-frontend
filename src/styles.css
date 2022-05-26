@@ -8,16 +8,17 @@
 html {
   --c1: #02055a;
   --c2: #253da1;
-  --c3: #02198b;
-  --c4: #b0dbf1;
   --c5: #000137;
   --secondary-color: #022408;
-  --link-color: var(--c2);
-  --link-color-light: #7d2ae811;
+  --link-color: #019875;
+  --link-color-light: #01987511;
   --primary-color: #b8293d;
+  --c1:var(--primary-color);
   --primary-color-light: #b8293d11;
   --alternative-color: #596e5c;
   --alternative-color-light: #596e5c11;
+  --c3:#333;
+  --c5:var(--alternative-color);
 }
 body {
   background: #f2f2f2;

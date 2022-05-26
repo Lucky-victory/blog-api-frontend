@@ -87,7 +87,7 @@
               url: 'article/' + singleArticle.slug
             }
           ]"
-        ></app-social-share>
+         [linkToCopy]="'article/'+singleArticle.slug"></app-social-share>
         <!-- <div class="post-share-btns-inner">
           <button
             class="post-share-btn"
@@ -138,5 +138,5 @@
   <!-- <router-outlet></router-outlet> -->
 </ng-container>
 <ng-template #loading>
-  <h1>loding njfjgkkgjfjdhdhsdj</h1>
+  <app-loader></app-loader>
 </ng-template>

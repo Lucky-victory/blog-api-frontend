@@ -18,7 +18,7 @@ export class SingleArticleComponent implements OnInit {
   
   singleArticle!: ISingleArticle;
 baseUrl:string=APP_BASE_URL;
-copyLinkTitle:string='copy link';
+
   constructor(private activeRoute:ActivatedRoute,private router:Router, private service:AppService,private pageTitle:Title, private pageMeta:Meta) { 
 
   }
@@ -42,16 +42,7 @@ this.activeRoute.paramMap.subscribe(params=>{
     this.pageTitle.setTitle(newTitle);
   }
   
-  shareToSocial(social:string,options:{url:string,text?:string,via?:string}){
-    const text=options['text'] ? options['text']:'';
-const socialPoviders:{[key:string]:string}={
-  'twitter':`https://twitter.com/share?url=${APP_BASE_URL}/article/${options['url']}&text=${text}`,
-  'facebook':`http://www.facebook.com/sharer/sharer.php?u=${APP_BASE_URL}/article/${options['url']}`
-}
-window.open(`${socialPoviders[social]}`,'','width=700,height=800,top=0,left=400,scrollbar=no')
-  }
- 
- 
+  
   setMetaTags(singleArticle:ISingleArticle){
     this.pageMeta.addTags([{
       property:'og:url',content:`${APP_BASE_URL}/article/${this.singleArticle.slug}`
