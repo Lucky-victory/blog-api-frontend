@@ -1,6 +1,6 @@
 {
   "name": "blog-api-frontend",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -24,6 +24,7 @@
     "@angular/platform-server": "~13.3.0",
     "@angular/router": "~13.3.0",
     "@nguniversal/express-engine": "^13.1.0",
+    "domino": "^2.1.6",
     "express": "^4.15.2",
     "ng-http-loader": "^11.0.1",
     "ngx-clipboard": "^15.1.0",

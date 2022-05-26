@@ -43,11 +43,11 @@
   object-fit: cover;
   border-radius: inherit;
   position: absolute;
-  transition: 0.75s ease-in-out;
+  transition: 0.5s ease-in-out;
 }
 .card-image:hover {
-  transition: 0.75s ease-in-out;
-  transform: scale(1.05);
+  transition: 0.5s ease-in-out;
+  transform: scale(1.1);
 }
 .card-inner {
   padding: 1rem;
@@ -64,7 +64,7 @@
 .card-category {
   text-transform: uppercase;
   font-weight: 500;
-  color: var(--alternative-colo, #fff);
+  color: #fff;
   background: var(--c1);
   padding: 0.5rem 1rem;
   border-radius: 0.15rem;
@@ -104,7 +104,7 @@
   bottom: 0;
   left: 0;
   position: absolute;
-  background: var(--c4);
+  background: var(--alternative-color);
 }
 .card-title:hover::before {
   width: 100%;
