@@ -32,6 +32,10 @@ const routes: Routes = [
   {
     path: '**',
     component: NotFoundComponent,
+    data: {
+      title: 'Not found',
+      description: 'The resource was not found.',
+    },
   },
 ];
 

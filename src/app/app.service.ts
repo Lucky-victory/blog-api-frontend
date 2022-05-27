@@ -1,4 +1,4 @@
-import { API_BASE_URL } from './constants';
+import { GlobalConstants } from './constants';
 import { IArticlesResponse } from './app.type';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
@@ -7,9 +7,9 @@ import { ISingleArticle } from './single-article/single-article.type';
 
 @Injectable()
 export class AppService {
-  private singleArticleUrl = API_BASE_URL + '/article';
-  private allPostUrl = API_BASE_URL + '/articles';
-  private apiBaseUrl = API_BASE_URL;
+  private singleArticleUrl = GlobalConstants.API_BASE_URL + '/article';
+  private allPostUrl = GlobalConstants.API_BASE_URL + '/articles';
+  private apiBaseUrl = GlobalConstants.API_BASE_URL;
   constructor(private http: HttpClient) {}
   getArticles(params?: { [key: string]: any }): Observable<IArticlesResponse> {
     return this.http.get<IArticlesResponse>(`${this.allPostUrl}`, {

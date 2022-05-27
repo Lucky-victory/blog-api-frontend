@@ -25,6 +25,7 @@ import { TextShortenerPipe } from '../pipes/text-shortener.pipe';
 import { AuthorImageComponent } from './sub-components/author-image/author-image.component';
 import { SocialShareComponent } from './sub-components/social-share/social-share.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
