@@ -131,7 +131,13 @@
         "prerender": {
           "builder": "@nguniversal/builders:prerender",
           "options": {
-            "routesFile": "pre-render-routes.txt"
+            "routes": [
+              "/",
+              "/author",
+              "/article",
+              "/category",
+              "/tags"
+            ]
           },
           "configurations": {
             "production": {
@@ -145,6 +151,7 @@
           },
           "defaultConfiguration": "production"
         }
+        
       }
     }
   },
