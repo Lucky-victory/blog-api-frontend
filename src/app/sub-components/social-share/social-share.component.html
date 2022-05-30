@@ -1,5 +1,5 @@
 <div class="social-share-container">
-  <button
+ <!--- <button
     class="social-share-btn"
     *ngFor="let social of socials"
     attr.data-social="{{ social.name }}"
@@ -12,7 +12,22 @@
         social.name
       }}"
     ></i>
-  </button>
+  </button>-->
+  <a href="https://facebook.com/sharer/sharer.php?u="+social.url target="_blank"
+    class="social-share-btn"
+    *ngFor="let social of socials"
+    attr.data-social="{{ social.name }}"
+    attr.data-url="{{ social.url }}"
+    attr.data-text="{{ social.text }}"
+    "
+  >
+    <i
+      class="social-share-icon devicon-{{ social.name }}-plain {{
+        social.name
+      }}"
+    ></i>
+    </a>
+  
   <!-- <button class="social-share-btn">
     <i class="social-share-icon devicon-twitter-plain twitter"></i>
   </button>--->

@@ -49,11 +49,7 @@ export class SingleArticleComponent implements OnInit {
           }`,
         },
         {
-          property: 'og:image',
-          content: singleArticle.heroImage,
-        },
-        {
-          property: 'og:title',
+          name: 'og:title',
           content: singleArticle.title,
         },
         {
@@ -71,5 +67,10 @@ export class SingleArticleComponent implements OnInit {
       ],
       true
     );
+    this.pageMeta.updateTag({
+    property:"og:image",content:singleArticle.heroImage
+  })
   }
+
+
 }
