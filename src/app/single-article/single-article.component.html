@@ -74,20 +74,20 @@
             {
               name: 'facebook',
               text: singleArticle.title,
-              url: 'article/' + singleArticle.slug
+              url: baseUrl+'article/' + singleArticle.slug
             },
             {
               name: 'twitter',
               text: singleArticle.title,
-              url: 'article/' + singleArticle.slug
+              url: baseUrl+'article/' + singleArticle.slug
             },
             {
               name: 'linkedin',
               text: singleArticle.title,
-              url: 'article/' + singleArticle.slug
+              url: baseUrl+'article/' + singleArticle.slug
             }
           ]"
-         [linkToCopy]="'article/'+singleArticle.slug"></app-social-share>
+         [linkToCopy]="baseUrl+'article/'+singleArticle.slug"></app-social-share>
         <!-- <div class="post-share-btns-inner">
           <button
             class="post-share-btn"

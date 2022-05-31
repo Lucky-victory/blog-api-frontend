@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { AppService } from '../app.service';
 
 import { ISingleArticle } from './single-article.type';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-single-post',
@@ -13,7 +14,7 @@ import { ISingleArticle } from './single-article.type';
 })
 export class SingleArticleComponent implements OnInit {
   singleArticle!: ISingleArticle;
-
+baseUrl:string=environment.appUrl;
   constructor(
     private activeRoute: ActivatedRoute,
 

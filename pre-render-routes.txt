@@ -1,5 +1,5 @@
 /
-/author/:username
-/tags/:tag
-/categories/:category
-/article/:slug
+/author/
+/tags/
+/categories/
+/article/

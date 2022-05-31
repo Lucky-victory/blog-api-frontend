@@ -2,6 +2,7 @@ import { IShare } from './social-share.type';
 import { Component, Input } from '@angular/core';
 import { SocialShareService } from './social-share.service';
 import { GlobalConstants } from 'src/app/constants';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-social-share',
@@ -25,19 +26,10 @@ export class SocialShareComponent {
       linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${GlobalConstants.getBaseURL()}/${url}`,
     };
     if (socialPoviders[social!]) {
-      if (window) {
-        window.open(
-          `${socialPoviders[social!]}`,
-          '',
-          'width=700,height=800,top=0,left=400,scrollbar=no'
-        );
-      }
     }
   }
   copyLink(link: string) {
-    this.socialShareService.copyToClipboard(
-      `${GlobalConstants.getBaseURL()}/${link}`
-    );
+    this.socialShareService.copyToClipboard(`${environment.appUrl}/${link}`);
     this.copyLinkTitle = 'copied';
     setTimeout(() => {
       this.copyLinkTitle = 'copy link';
