@@ -13,12 +13,10 @@
     "build:ssr": "ng build && ng run blog-api-frontend:server",
     "prerender": "ng run blog-api-frontend:prerender"
   },
-"engines":{
-"node":"14.18.0",
-"npm":"6.14.15"
-},
   "private": true,
   "dependencies": {
+    "@angular/cli": "~13.3.1",
+    "@angular/compiler-cli": "~13.3.0",
     "@angular/animations": "~13.3.0",
     "@angular/common": "~13.3.0",
     "@angular/compiler": "~13.3.0",
@@ -28,18 +26,17 @@
     "@angular/platform-browser-dynamic": "~13.3.0",
     "@angular/platform-server": "~13.3.0",
     "@angular/router": "~13.3.0",
+"@angular-devkit/build-angular": "~13.3.1",
     "@nguniversal/express-engine": "^13.1.1",
-    "express": "^4.15.2",
+"@nguniversal/builders": "^13.1.1",   
+ "express": "^4.15.2",
     "ng-http-loader": "^11.0.1",
     "ngx-clipboard": "^15.1.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4",
-    "@angular/cli": "~13.3.1",
-    "@angular/compiler-cli": "~13.3.0",
     "typescript": "~4.6.2",
-"@angular-devkit/build-angular": "~13.3.1",
-"@nguniversal/builders": "^13.1.1"  
+  
 },
   "devDependencies": {
     "@types/express": "^4.17.0",
