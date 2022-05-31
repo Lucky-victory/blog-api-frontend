@@ -9,7 +9,7 @@
     "test": "ng test",
     "dev:ssr": "ng run blog-api-frontend:serve-ssr",
     "serve:ssr": "node dist/blog-api-frontend/server/main.js",
-    "build:ssr": "npm run ng build && npm run ng run blog-api-frontend:server",
+    "build:ssr": "ng build && ng run blog-api-frontend:server",
     "prerender": "ng run blog-api-frontend:prerender"
   },
   "private": true,
