@@ -13,6 +13,12 @@ export class SocialShareComponent {
   @Input() socials: IShare[] = [];
   @Input() linkToCopy: string = '';
   copyLinkTitle: string = 'copy link';
+  const socialPoviders: {
+     [key: string]: string } = {
+     twitter: `https://twitter.com/share?url=`,
+     facebook: `http://www.facebook.com/sharer/sharer.php?u=`,
+     linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=`,
+  };
   constructor(private socialShareService: SocialShareService) {}
 
   shareToSocial(event: MouseEvent) {
@@ -20,13 +26,13 @@ export class SocialShareComponent {
     const { social, url } = target.dataset;
     let { text } = target.dataset;
     text = text ?? '';
-    const socialPoviders: { [key: string]: string } = {
-      twitter: `https://twitter.com/share?url=${GlobalConstants.getBaseURL()}/${url}&text=${text}`,
-      facebook: `http://www.facebook.com/sharer/sharer.php?u=${GlobalConstants.getBaseURL()}/${url}`,
-      linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${GlobalConstants.getBaseURL()}/${url}`,
-    };
-    if (socialPoviders[social!]) {
-    }
+   //  const socialPoviders: { [key: string]: string } = {
+   //    twitter: `https://twitter.com/share?url=${url}&text=${text}`,
+   //    facebook: `http://www.facebook.com/sharer/sharer.php?u=${GlobalConstants.getBaseURL()}/${url}`,
+   //    linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=/${url}`,
+   //  };
+   //  if (socialPoviders[social!]) {
+   //  }
   }
   copyLink(link: string) {
     this.socialShareService.copyToClipboard(`${environment.appUrl}/${link}`);
