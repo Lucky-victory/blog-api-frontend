@@ -13,7 +13,7 @@ export class SocialShareComponent {
   @Input() socials: IShare[] = [];
   @Input() linkToCopy: string = '';
   copyLinkTitle: string = 'copy link';
-  const socialPoviders: {
+  socialPoviders: {
      [key: string]: string } = {
      twitter: `https://twitter.com/share?url=`,
      facebook: `http://www.facebook.com/sharer/sharer.php?u=`,
