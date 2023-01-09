@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  appUrl: 'https://viblog-demo.herokuapp.com',
+  appUrl: 'https://viblog-demo.onrender.com',
 };
